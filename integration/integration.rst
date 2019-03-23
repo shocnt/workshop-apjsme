@@ -6,6 +6,12 @@
 LAB: Integration Demo
 ---------------------
 
+.. note::
+
+    this demo workable for AOS 5.9+ and PC 5.10 
+    we fond some issue when using PC 5.10.1/5.10.2 (spec_hash)
+
+
 Era 
 +++
 
@@ -14,7 +20,7 @@ Deploying Era
 
 Era is distributed as a virtual appliance that can be installed on either AHV or ESXi. In this lab you will deploy Era to your AHV cluster.
 
-#. Download Era image from portal.nutanix.com, upload image to PC if you have deployed it. 
+#. Get Era image URL from portal.nutanix.com, and add image to PC with that URL directly. 
 
 #. In **Prism Central**, select :fa:`bars` **> Virtual Infrastructure > VMs**.
 
@@ -95,19 +101,90 @@ Registering a Cluster
     .. figure:: images_era/3e2.png
 
 
-Prepare PC
-++++++++++
+Prepare Prism Central
++++++++++++++++++++++
+
 #. add image from following URL: \https://s3.ap-northeast-2.amazonaws.com/panlm-images/centos-template.qcow2*/
 
-#. Enable Flow
+#. Ensure Flow is enabled. Go to **Prism Central Settings**
 
     .. figure:: images_integration/enable_flow.png
 
-#. Upgrade Calm to newest version (2.6.0.1) with LCM
+    .. note::
+
+        You will not find **Enable Flow**, if it was enabled.
+
+#. Some categories will be created manually for this lab.
+
+    - **AppTier** - add *App* and *DB* if not existed
+
+        .. figure:: images_integration/int2.png
+
+#. Upgrade Calm to newest version (2.6.0.3) with **LCM**
+
+    .. figure:: images_integration/upgrade_calm.png
 
 #. add ahv cluster to your default project
 
+    - **AHV Cluster** - using your ahv cluster
+    - **Network** - using the network with IPAM enabled 
+
     .. figure:: images_integration/edit_project.png
 
-#. Please download blueprint :download:`HERE <./integration.json>`
+Customized Blueprint
+++++++++++++++++++++
 
+#. Please upload blueprint to Calm
+
+    - :download:`HERE <./integration.json>`
+
+#. Customized blueprint to meet your environment
+
+    - In **Default** application profile:
+
+        - **era_ip** - Your Era VM IP address
+        - **db_public_key** - Your public key
+        - **epoch_aoc_host** - *nutanix.epoch.nutanix.com*
+        - **epoch_org_id** - *8cb44812-1cd3-45c4-847d-43f3271d126f*
+        - **pc_ip** - Your Prism Central IP address
+        - **pc_password** - Your admin's password for Prism Central
+
+    - In **Credentials**:
+
+        - **SSH Private Key** for db_server_creds - Put your private key here
+        - **password** for era_creds - **nutanix/4u** (we create this password in previous chapter)
+        - **SSH Private Key** for centos - Put your private key here
+
+        .. figure:: images_integration/int1.png
+        
+    - In **Services**:
+
+        - **app** service - Image / NIC
+
+#. Launch blueprint
+
+Integration Demo
+++++++++++++++++
+#. Get application IP address and check application
+
+        .. figure:: images_integration/int3.png
+
+        .. figure:: images_integration/int4.png
+
+#. Get postgresql IP address and check database from Era
+
+        .. figure:: images_integration/int5.png
+
+        .. figure:: images_integration/int6.png
+
+        .. figure:: images_integration/int7.png
+
+#. Check security policy in Flow
+
+        .. figure:: images_integration/int8.png
+
+        .. figure:: images_integration/int9.png
+
+#. Check Epoch Monitoring
+
+        .. figure:: images_integration/int10.png
