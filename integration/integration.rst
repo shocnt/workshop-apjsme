@@ -9,7 +9,7 @@ LAB: Integration Demo
 .. note::
 
     this demo workable for AOS 5.9+ and PC 5.10 
-    we fond some issue when using PC 5.10.1/5.10.2 (spec_hash)
+    we have found some issues when using PC 5.10.1/5.10.2 (spec_hash)
 
 
 Era 
@@ -122,16 +122,16 @@ Prepare Prism Central
 
     .. figure:: images_integration/upgrade_calm.png
 
-#. add ahv cluster to your default project
+#. Add ahv cluster to your default project
 
     - **AHV Cluster** - using your ahv cluster
     - **Network** - using the network with IPAM enabled 
 
     .. figure:: images_integration/edit_project.png
 
-#. download default centos image from internet and upload
+#. Download default centos image from internet and upload
 
-    - \*http://download.nutanix.com/calm/CentOS-7-x86_64-GenericCloud-1801-01.qcow2*/
+    - ``http://download.nutanix.com/calm/CentOS-7-x86_64-GenericCloud-1801-01.qcow2``
 
 
 Customized Blueprint

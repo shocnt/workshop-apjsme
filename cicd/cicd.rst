@@ -52,9 +52,18 @@ Edit & Launch CI/CD Blueprint
 
         .. figure:: images/cicd1.png
 
-        - get jenkins url and admin's password - for example: ``http://10.132.129.116:8080/`` *d63a4aa28e174180bc040892296dace9*
-        - get developor workstation ip address - for example: *10.132.129.219*
-        - get artifactory url - for example: ``http://10.132.129.136:8081/artifactory/webapp``
+        - get jenkins url and admin's password 
+        
+            - URL: for example: ``http://10.132.129.116:8080/`
+            - Password: *d63a4aa28e174180bc040892296dace9*
+
+        - get developor workstation ip address 
+        
+            - for example: *10.132.129.219*
+
+        - get artifactory url 
+
+            - for example: ``http://10.132.129.136:8081/artifactory/webapp``
 
 Edit Application Blueprint
 ++++++++++++++++++++++++++
