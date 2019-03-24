@@ -55,7 +55,7 @@ Registering a Cluster
 
 #. In **Prism Central > VMs > List**, identify the IP address assigned to your Era VM using the **IP Addresses** column.
 
-#. Open \https://*ERA-VM-IP:8443*/ in a new browser tab.
+#. Open ``https://ERA-VM-IP:8443`` in a new browser tab.
 
     .. note::
 
@@ -104,8 +104,6 @@ Registering a Cluster
 Prepare Prism Central
 +++++++++++++++++++++
 
-#. add image from following URL: \https://s3.ap-northeast-2.amazonaws.com/panlm-images/centos-template.qcow2*/
-
 #. Ensure Flow is enabled. Go to **Prism Central Settings**
 
     .. figure:: images_integration/enable_flow.png
@@ -130,6 +128,11 @@ Prepare Prism Central
     - **Network** - using the network with IPAM enabled 
 
     .. figure:: images_integration/edit_project.png
+
+#. download default centos image from internet and upload
+
+    - \*http://download.nutanix.com/calm/CentOS-7-x86_64-GenericCloud-1801-01.qcow2*/
+
 
 Customized Blueprint
 ++++++++++++++++++++
@@ -159,7 +162,10 @@ Customized Blueprint
         
     - In **Services**:
 
-        - **app** service - Image / NIC
+        - **app** service
+
+            - **image** - choose the image you just uploaded
+            - **network** - assign NIC to VM
 
 #. Launch blueprint
 
@@ -167,24 +173,38 @@ Integration Demo
 ++++++++++++++++
 #. Get application IP address and check application
 
+    - Get IP address from right column
+
         .. figure:: images_integration/int3.png
+
+    - Open URL: ``http://x.x.x.x:8000/`` to access this online shopping application
 
         .. figure:: images_integration/int4.png
 
 #. Get postgresql IP address and check database from Era
 
+    - Get IP address from right column
+
         .. figure:: images_integration/int5.png
+
+    - Get the name of database server in top-right corner, it will be display in Epoch monitoring
 
         .. figure:: images_integration/int6.png
 
+    - confirm time machine settings has been created for this database.
+
         .. figure:: images_integration/int7.png
 
-#. Check security policy in Flow
+#. Check security policy in Flow was be created automatically.
 
-        .. figure:: images_integration/int8.png
+    .. figure:: images_integration/int8.png
+
+    - check detail of security policy, we will find database and app in seperate *AppTier*, and this security policy just for *Environment* you just launched
 
         .. figure:: images_integration/int9.png
 
-#. Check Epoch Monitoring
+#. Check Epoch Monitoring, will see *layer 7* monitoring enabled for postgresql 
 
-        .. figure:: images_integration/int10.png
+    .. figure:: images_integration/int10.png
+
+

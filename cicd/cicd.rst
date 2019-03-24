@@ -15,7 +15,7 @@ Import Blueprints
 
 #. upload blueprints
 
-#. download and import ubuntu image for these blueprint \https://s3.ap-northeast-2.amazonaws.com/panlm-images/ubu-template.qcow2*/
+#. download and import ubuntu image for these blueprint ``https://s3.ap-northeast-2.amazonaws.com/panlm-images/ubu-template.qcow2``
 
 Edit & Launch CI/CD Blueprint
 +++++++++++++++++++++++++++++
@@ -25,7 +25,7 @@ Edit & Launch CI/CD Blueprint
     - In Application Profile
 
         - **initial_app_deploy_blueprint** - *input your CICD App blueprint name*
-        - **initial_code_seed_location** - https://s3.ap-northeast-2.amazonaws.com/panlm-images/
+        - **initial_code_seed_location** - ``https://s3.ap-northeast-2.amazonaws.com/panlm-images/``
         - **jenkins_public_key** - *Your public key*
         - **nutanix_public_key** - *Your public key*
         - **pc_instance_ip** - *Your Prism Central IP*
@@ -52,9 +52,9 @@ Edit & Launch CI/CD Blueprint
 
         .. figure:: images/cicd1.png
 
-        - get jenkins url and admin's password - for example: \http://10.132.129.116:8080/*/ *d63a4aa28e174180bc040892296dace9*
+        - get jenkins url and admin's password - for example: ``http://10.132.129.116:8080/`` *d63a4aa28e174180bc040892296dace9*
         - get developor workstation ip address - for example: *10.132.129.219*
-        - get artifactory url - for example: \*http://10.132.129.136:8081/artifactory/webapp*/
+        - get artifactory url - for example: ``http://10.132.129.136:8081/artifactory/webapp``
 
 Edit Application Blueprint
 ++++++++++++++++++++++++++
@@ -145,7 +145,7 @@ Change Code, Application will be deployed again
 Browser other components
 ++++++++++++++++++++++++
 
-#. open artifactory web ui http://x.x.x.x:8081/artifactory/webapp, login with default credential: **admin/password**
+#. open artifactory web ui ``http://x.x.x.x:8081/artifactory/webapp``, login with default credential: **admin/password**
 
     .. figure:: images/arti1.png
 
@@ -153,11 +153,11 @@ Browser other components
 
 #. Access docker registry from browser 
 
-    - https://x.x.x.x/v2/_catalog
+    - ``https://x.x.x.x/v2/_catalog``
 
         .. figure:: images/dockr1.png
 
-    - https://x.x.x.x/v2/devops/nginx/tags/list
+    - ``https://x.x.x.x/v2/devops/nginx/tags/list``
 
         .. figure:: images/dockr2.png
 
