@@ -15,6 +15,8 @@
   :name: _workinglabs
   :hidden:
 
+  gcp/gcp
+
 .. toctree::
   :maxdepth: 2
   :caption: Appendix
@@ -36,10 +38,14 @@ Welcome to lab for APJ SE
 Labs we have
 ++++++++++++
 
-- cicd
+- Released Labs
+
     - :ref:`cicd`
-- integration
     - :ref:`integration`
+
+- Working Labs
+
+    - :ref:`gcp`
 
 
 
