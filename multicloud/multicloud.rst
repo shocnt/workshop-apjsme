@@ -1,13 +1,13 @@
-.. title:: LAB: GCP Integration
+.. title:: LAB: Multi Cloud Integration
 
-.. _gcp:
+.. _multicloud:
 
---------------------
-LAB: GCP Integration
---------------------
+----------------------------
+LAB: Multi Cloud Integration
+----------------------------
 
-Prepare
-+++++++
+GCP
++++
 
 #. Login your gcp account under *project* in *nutanix* orgnization, for example **APAC Solution DEMO", create *Service accounts* for your calm demo
 
@@ -40,3 +40,12 @@ Prepare
     - **GCP** - choose the GCP account name you just created
     - **Save**
 
+Azure
++++++
+
+check this video out
+
+https://www.youtube.com/watch?v=7wNCiw1Jn5A
+
+AWS
++++

@@ -15,7 +15,7 @@
   :name: _workinglabs
   :hidden:
 
-  gcp/gcp
+  multicloud/multicloud
 
 .. toctree::
   :maxdepth: 2
