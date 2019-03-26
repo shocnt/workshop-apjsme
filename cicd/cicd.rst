@@ -25,7 +25,7 @@ Edit & Launch CI/CD Blueprint
     - In Application Profile
 
         - **initial_app_deploy_blueprint** - *input your CICD App blueprint name*
-        - **initial_code_seed_location** - ``https://s3.ap-northeast-2.amazonaws.com/panlm-images/``
+        - **initial_code_seed_location** - ``https://s3.ap-northeast-2.amazonaws.com/panlm-images``
         - **jenkins_public_key** - *Your public key*
         - **nutanix_public_key** - *Your public key*
         - **pc_instance_ip** - *Your Prism Central IP*
