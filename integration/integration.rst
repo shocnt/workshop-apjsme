@@ -6,12 +6,6 @@
 LAB: Integration Demo
 ---------------------
 
-.. note::
-
-    this demo workable for AOS 5.9+ and PC 5.10 
-    we have found some issues when using PC 5.10.1/5.10.2 (spec_hash)
-
-
 Era 
 +++
 
@@ -206,5 +200,4 @@ Integration Demo
 #. Check Epoch Monitoring, will see *layer 7* monitoring enabled for postgresql 
 
     .. figure:: images_integration/int10.png
-
 
