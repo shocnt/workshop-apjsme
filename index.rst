@@ -45,7 +45,7 @@ Labs we have
 
 - Working Labs
 
-    - :ref:`gcp`
+    - :ref:`multicloud`
 
 
 

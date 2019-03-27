@@ -9,7 +9,7 @@ LAB: Multi Cloud Integration
 GCP
 +++
 
-#. Login your gcp account under *project* in *nutanix* orgnization, for example **APAC Solution DEMO", create *Service accounts* for your calm demo
+#. Login your gcp account under *project* in *nutanix* orgnization, for example **APAC Solution DEMO**, create *Service accounts* for your calm demo
 
     .. figure:: images/gcp1.png
 

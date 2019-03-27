@@ -54,7 +54,7 @@ Edit & Launch CI/CD Blueprint
 
         - get jenkins url and admin's password 
         
-            - URL: for example: ``http://10.132.129.116:8080/`
+            - URL: for example: ``http://10.132.129.116:8080/``
             - Password: *d63a4aa28e174180bc040892296dace9*
 
         - get developor workstation ip address 
@@ -67,6 +67,10 @@ Edit & Launch CI/CD Blueprint
 
 Edit Application Blueprint
 ++++++++++++++++++++++++++
+
+.. note::
+
+    You DO NOT need to launch this blueprint, this blueprint will be called by jenkins pipeline
 
 #. Edit **CICD App** blueprint:
 
@@ -91,10 +95,11 @@ Edit Application Blueprint
 
     - **Save** blueprint
 
-    - You DO NOT need to launch this blueprint, this blueprint will be called by jenkins pipeline
+Developor Workstation
++++++++++++++++++++++
 
-Commit Code, Application will be deployed automatically
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Commit Code
+-----------
 
 #. Open jenkins master url, login as admin. You will see we already have devops pipeline ready.
 
@@ -123,8 +128,8 @@ Commit Code, Application will be deployed automatically
 
     .. figure:: images/cicd6.png
 
-Change Code, Application will be deployed again
-+++++++++++++++++++++++++++++++++++++++++++++++
+Change Code
+-----------
 
 #. if we want to do some changes in our code, such as change *databox* color. Let's login to developer workstation agin
 
@@ -151,8 +156,8 @@ Change Code, Application will be deployed again
 
         .. figure:: images/cicd8.png
 
-Browser other components
-++++++++++++++++++++++++
+Other components
+++++++++++++++++
 
 #. open artifactory web ui ``http://x.x.x.x:8081/artifactory/webapp``, login with default credential: **admin/password**
 
