@@ -1,12 +1,12 @@
-.. title:: LAB: Integration Demo
+.. title:: LAB: Era, Flow, Epoch Integration Demo
 
 .. _integration:
 
----------------------
-LAB: Integration Demo
----------------------
+--------------------------------------
+LAB: Era, Flow, Epoch Integration Demo
+--------------------------------------
 
-Era 
+Era
 +++
 
 Deploying Era
