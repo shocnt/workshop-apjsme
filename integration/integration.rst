@@ -11,7 +11,7 @@ Overview
 
 #. download video from HERE: `https://www.dropbox.com/s/v1269dwd3jcn6eo/Calm-Epoch-Era-20190405.mp4?dl=0`
 
-#. download blueprint from HERE: :download:`DOWNLOAD <./integration.json>`
+#. download blueprint from HERE: :download:`Integration Demo Blueprint <./integration.json>`
 
 Era
 +++
@@ -130,7 +130,7 @@ Prepare Prism Central
 
     .. figure:: images_integration/edit_project.png
 
-#. Download default centos image from internet and upload
+#. Using default CentOS image, copy this url and **Add Image from URL**
 
     - ``http://download.nutanix.com/calm/CentOS-7-x86_64-GenericCloud-1801-01.qcow2``
 

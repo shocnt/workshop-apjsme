@@ -6,28 +6,27 @@
 LAB: Ansible Integration
 ------------------------
 
-AWX Integration
-+++++++++++++++
+# AWX Integration
++++++++++++++++++
 
-Create AWX
-----------
+#. Create AWX
+-------------
 
-#. Download default centos image from internet and upload
+#. Using default CentOS image, copy this url and **Add Image from URL**
 
     - ``http://download.nutanix.com/calm/CentOS-7-x86_64-GenericCloud-1801-01.qcow2``
 
-#. download blueprint from HERE: :download:`DOWNLOAD <./ansible-awx.json>`
+#. Download blueprint from HERE: :download:`blueprint: ansible-awx <./ansible-awx.json>`
 
-#. After blueprint launched, you will get a workable AWX for following lab
+#. Modify blueprint as you needed
 
-#. Open browser to access the AWX VM's IP address. Credential is **admin/password**
-
-    - ``http://x.x.x.x/`` 
+#. After blueprint launched, you will get a workable AWX. 
+Open browser to access the AWX VM's IP address. Default credential is **admin/password**
 
     .. figure:: images/awx1.png
 
-Setup AWX
----------
+#. Setup AWX
+------------
 
 #. Go to **Inventory Scripts** and add new one
 
@@ -41,8 +40,11 @@ Setup AWX
 
     .. figure:: images/awx-inv1.png
 
-    - **Name** - **Nutanix Inventory**
+    - **Name** - *Nutanix Inventory*
     - **Save**
+#. Go to **Sources**
+
+    .. figure:: images/awx-inv2.png
 
 #. Add a **Source** to this inventory
 
@@ -69,24 +71,25 @@ Setup AWX
 
         .. figure:: images/awx-inv4.png
 
-    - the ``cloud`` icon will tune to green, click it for more detail logs
+    - The ``cloud`` icon (left of source name) will tune to green, click it for more detail logs
 
         .. figure:: images/awx-inv5.png
 
-    - after sync finished, check **HOST** tab. all VMs in your cluster will be captured and display HERE
+    - After sync finished, check **HOST** tab. all VMs in your cluster will be captured and displayed
 
         .. figure:: images/awx-inv6.png
 
-#. Add credential for VMs which we will create
+#. Go to **Credentials** and add new one for VMs which we will create later
 
-    - Go to **Credentials** and add new one
+    .. figure:: images/awx-cred2.png
+
     - **NAME** - *Nutanix VM*
     - **CREDENTIAL TYPE** - *Machine*
     - **USERNAME** - *centos*
     - **SSH PRIVATE KEY** - *user your private key*
     - **Save**
 
-    .. figure:: images/awx-cred2.png
+    .. note:: USERNAME and Password/Private Key should be same with the credential in ``blueprint-managed-vm``
 
 #. Go to Projects
 
@@ -98,40 +101,42 @@ Setup AWX
 
         .. figure:: images/awx-proj2.png
 
-    - Click **JOB TEMPLATES**, open **Demo Job Template**, we will re-use it in our lab
+    - Click **JOB TEMPLATES**
 
         .. figure:: images/awx-proj3.png
 
-    - **INVENTORY** - *Nutanix Inventory* (we just create it)
-    - **CREDENTIAL** - *Nutanix VM* (we just create it)
-    - **PLAYBOOK** - *hello_world.yml*
+    - Open **Demo Job Template**, we will re-use it in our lab
 
-        .. note:: if you could not see playbook here, maybe fresh your project (see first step in this paragraph, ``Get latest SCM revision``)
+        .. figure:: images/awx-proj4.png
+
+        - **INVENTORY** - *Nutanix Inventory* (we just create it)
+        - **CREDENTIAL** - *Nutanix VM* (we just create it)
+        - **PLAYBOOK** - *hello_world.yml*
+
+            .. note:: if you could not see playbook here, maybe need to fresh your project, see first step in this paragraph, ``Get latest SCM revision``
+            
+        - **ALLOW PROVISIONING CALLBACKS** - *checked*
+        - write down the **PROVISIONING CALLBACK URL**, will be used in Calm blueprint
+        - click right button to generate **HOST CONFIG KEY**, and write down it, will be used in Calm blueprint
         
-    - **ALLOW PROVISIONING CALLBACKS** - *checked*
-    - write down the **PROVISIONING CALLBACK URL**, will be used in Calm blueprint
-    - click right button to generate **HOST CONFIG KEY**, and write down it, will be used in Calm blueprint
-    
-        - get help for this **HOST CONFIG KEY**
+            - get help for this **HOST CONFIG KEY**
 
-            .. figure:: images/awx-proj5.png
+                .. figure:: images/awx-proj5.png
 
-    .. figure:: images/awx-proj4.png
+        - **Save** and you will be prompt these important info
 
-    - **Save** and you will be prompt these important info
-
-    .. figure:: images/awx-proj6.png
+            .. figure:: images/awx-proj6.png
 
 #. Go to **Jobs**, and wait magic happen ...
 
-Create VM managed by AWX
-------------------------
+#. Create VM managed by AWX
+---------------------------
 
-#. Download blueprint from HERE: :download:`DOWNLOAD <./ansible-vm.json>`
+#. Download blueprint from HERE: :download:`blueprint: ansible-managed-vm <./ansible-managed-vm.json>`
 
 #. This is a simple blueprint with one service. One bash task in service's **Package** --> **Install**
 
-    .. note:: here is an sample, use your ``HOST CONFIG KEY`` and ``PROVISIONING CALLBACK URL``
+    .. here is an sample, use your ``HOST CONFIG KEY`` and ``PROVISIONING CALLBACK URL``
     
     .. code-block:: bash
 
@@ -142,8 +147,8 @@ Create VM managed by AWX
 
     - Variables
 
-        - **HOST_CONFIG_KEY** - *your host config key*
-        - **CALLBACK_URL** - *your callback url*
+        - **host_config_key** - *your host config key*
+        - **callback_url** - *your callback url*
         - **public_key** - *inject your public key to VM*
 
     - Assign a linux image
@@ -171,8 +176,8 @@ Create VM managed by AWX
 
 #. Save and launch blueprint
 
-Check playbook is running on VM
--------------------------------
+#. Check playbook is running on VM
+----------------------------------
 
 #. Back to AWX UI, go to **Jobs**
 
@@ -186,6 +191,6 @@ Check playbook is running on VM
 
 
 
-Ansible Tower Integration
-+++++++++++++++++++++++++
+# Ansible Tower Integration
++++++++++++++++++++++++++++
 
