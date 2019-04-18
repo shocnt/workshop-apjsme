@@ -90,8 +90,7 @@ Sample SSH Key for all albs
 
 - Public key
 
-    .. code-block:: 
+    .. code-block:: language
 
         ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCy9+19bVdjN2Uet/jCZD7S+0GQBlv0eOu2tcKqx5p/wWhfiT8ND0U3eklG1UlTTbRA+1sqBHkxoD0GdLsSV0Isr+3R3FlJgn7uhd0IzINjaN9PP7I2D4UATAvUpe13vqhsSxPEEahw9PeruyPABopZnZkhcqHE+x/FHeBEf2daqmZ/Yl5nlejUd5el49KkS+wKCjfwTmrIDYGbYAtq/9uApdNxsyy9ECgVyuue5lIziXnV7R4/ZPdOB+pZi7T4Sc7BytHW5C/go0tPoA6jPkO19ZyDV9yz6iU4x2Ho7FROP3bxV3sZGmTM2jJrOcAd3Rosm2sJEaYxSP2TBrMKEFJL stevenpan@stevenpans-MacBook-Pro.local
 
-    

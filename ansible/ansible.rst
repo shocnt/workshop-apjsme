@@ -6,10 +6,10 @@
 LAB: Ansible Integration
 ------------------------
 
-# AWX Integration
-+++++++++++++++++
+AWX Integration
++++++++++++++++
 
-#. Create AWX
+1. Create AWX
 -------------
 
 #. Using default CentOS image, copy this url and **Add Image from URL**
@@ -20,12 +20,11 @@ LAB: Ansible Integration
 
 #. Modify blueprint as you needed
 
-#. After blueprint launched, you will get a workable AWX. 
-Open browser to access the AWX VM's IP address. Default credential is **admin/password**
+#. After blueprint launched, you will get a workable AWX. Open browser to access the AWX VM's IP address. Default credential is **admin/password**
 
     .. figure:: images/awx1.png
 
-#. Setup AWX
+2. Setup AWX
 ------------
 
 #. Go to **Inventory Scripts** and add new one
@@ -129,7 +128,7 @@ Open browser to access the AWX VM's IP address. Default credential is **admin/pa
 
 #. Go to **Jobs**, and wait magic happen ...
 
-#. Create VM managed by AWX
+2. Create VM managed by AWX
 ---------------------------
 
 #. Download blueprint from HERE: :download:`blueprint: ansible-managed-vm <./ansible-managed-vm.json>`
@@ -176,7 +175,7 @@ Open browser to access the AWX VM's IP address. Default credential is **admin/pa
 
 #. Save and launch blueprint
 
-#. Check playbook is running on VM
+4. Check playbook is running on VM
 ----------------------------------
 
 #. Back to AWX UI, go to **Jobs**
@@ -191,6 +190,6 @@ Open browser to access the AWX VM's IP address. Default credential is **admin/pa
 
 
 
-# Ansible Tower Integration
-+++++++++++++++++++++++++++
+Ansible Tower Integration
++++++++++++++++++++++++++
 
