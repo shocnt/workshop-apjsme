@@ -129,11 +129,7 @@ Create VM managed by AWX
 
 #. Download blueprint from HERE: :download:`DOWNLOAD <./ansible-vm.json>`
 
-#. This is a simple blueprint with one service
-
-change variable  ;)
-
-#. Create bash task in service's **Package** --> **Install**
+#. This is a simple blueprint with one service. One bash task in service's **Package** --> **Install**
 
     .. note:: here is an sample, use your ``HOST CONFIG KEY`` and ``PROVISIONING CALLBACK URL``
     
@@ -141,6 +137,37 @@ change variable  ;)
 
         set -x
         curl --data "host_config_key=629ff460-d58e-410c-a2d0-5e1557eded27" http://10.42.98.107:80/api/v2/job_templates/5/callback/
+
+#. Modify this blueprint
+
+    - Variables
+
+        - **HOST_CONFIG_KEY** - *your host config key*
+        - **CALLBACK_URL** - *your callback url*
+        - **public_key** - *inject your public key to VM*
+
+    - Assign a linux image
+    - Assign cloudinit script
+
+        .. code-block:: 
+
+            #cloud-config
+            disable_root: False
+            ssh_enabled: True
+            ssh_pwauth: True
+            users:
+              - name: centos
+                ssh-authorized-keys:
+                  - ssh-rsa @@{public_key}@@
+                sudo: ['ALL=(ALL) NOPASSWD:ALL']
+
+    - Add nic and assign network
+    - Create a credential 
+
+        - **Credential Name** - *centos*
+        - **Username** - *centos*
+        - **Secret Type** - *SSH Private Key*
+        - **SSH Private Key** - *paste your private key here*
 
 #. Save and launch blueprint
 
