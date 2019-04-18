@@ -16,6 +16,8 @@
   :hidden:
 
   multicloud/multicloud
+  ansible/ansible
+  infoblox/infoblox
 
 .. toctree::
   :maxdepth: 2
@@ -46,6 +48,8 @@ Labs we have
 - Working Labs
 
     - :ref:`multicloud`
+    - :ref:`ansible`
+    - :ref:`infoblox`
 
 
 
