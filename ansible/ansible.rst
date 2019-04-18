@@ -128,7 +128,7 @@ AWX Integration
 
 #. Go to **Jobs**, and wait magic happen ...
 
-2. Create VM managed by AWX
+3. Create VM managed by AWX
 ---------------------------
 
 #. Download blueprint from HERE: :download:`blueprint: ansible-managed-vm <./ansible-managed-vm.json>`
@@ -187,8 +187,6 @@ AWX Integration
 #. click job for more detail information, including the VM ip address
 
     .. figure:: images/awx-job2.png
-
-
 
 Ansible Tower Integration
 +++++++++++++++++++++++++
