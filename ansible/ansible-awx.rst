@@ -12,7 +12,7 @@ AWX Integration
 1. Overview
 -----------
 
-- Online video is here: `VIDEO <https://youtu.be/rWOAB9SLT5U>`_
+- Online video is here: `Video <https://youtu.be/rWOAB9SLT5U>`_
 
 2. Create AWX
 -------------
@@ -45,7 +45,7 @@ AWX Integration
     .. figure:: images/awx-inv-script.png
 
     - **Name** - *prism central*
-    - get script from here `prism_central.py <https://raw.githubusercontent.com/pipoe2h/ansible-nutanix-prismcentral-inventory/master/prism_central.py>`_
+    - get script from here `prism_central.py <https://raw.githubusercontent.com/panlm/ansible-nutanix-prismcentral-inventory/master/prism_central.py>`_
     - **Save**
 
 #. Go to **Inventories** from the left side, click ``green`` plus button on the right side to add new one
@@ -107,7 +107,7 @@ AWX Integration
     - **SSH PRIVATE KEY** - *user your private key* or refer --> :ref:`ssh_key`
     - **Save**
 
-    .. note:: USERNAME and Password/Private Key should be same with the credential in ``blueprint-managed-vm``
+    .. note:: USERNAME and Password/Private Key should be same with the credential in ``ansible-awx-managed-vm`` blueprint
 
 #. Go to Projects
 
@@ -152,7 +152,7 @@ AWX Integration
 
 #. Download blueprint from HERE: :download:`blueprint: ansible-awx-managed-vm <./ansible-awx-managed-vm.json>`
 
-#. This is a simple blueprint with one service. One bash task in service's **Package** --> **Install**
+#. This is a simple blueprint with one service. One bash task in service's **Package** --> **Install** task
 
     .. note:: here is an sample, use your ``HOST CONFIG KEY`` and ``PROVISIONING CALLBACK URL``
     
@@ -194,6 +194,8 @@ AWX Integration
 
     .. figure:: images/awx-job2.png
 
-Ansible Tower Integration
-+++++++++++++++++++++++++
+Reference
++++++++++
 
+- Jose Gomez's `Github <https://github.com/pipoe2h/ansible-nutanix-prismcentral-inventory>`_ and  `Video <https://youtu.be/rWOAB9SLT5U>`_
+- Ansible AWX Project `Github <https://github.com/ansible/awx>`_
