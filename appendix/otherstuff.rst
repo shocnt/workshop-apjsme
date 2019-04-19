@@ -5,9 +5,5 @@ Other Stuff
 Information
 +++++++++++
 
-
-
-How to prepare lab environment in SH-COLO
-+++++++++++++++++++++++++++++++++++++++++
-
+Author: leiming.pan@nutanix.com
 

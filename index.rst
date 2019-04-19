@@ -9,6 +9,7 @@
   cicd/cicd
   integration/integration
   ansible/ansible-awx
+  ansible/ansible-tower
 
 .. toctree::
   :maxdepth: 2
@@ -17,7 +18,6 @@
   :hidden:
 
   multicloud/multicloud
-  ansible/ansible-tower
   infoblox/infoblox
 
 .. toctree::
@@ -46,11 +46,11 @@ Labs we have
     - :ref:`cicd`
     - :ref:`integration`
     - :ref:`ansible-awx`
+    - :ref:`ansible-tower`
 
 - Working Labs
 
     - :ref:`multicloud`
-    - :ref:`ansible-tower`
     - :ref:`infoblox`
 
 
