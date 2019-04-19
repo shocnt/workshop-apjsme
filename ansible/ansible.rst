@@ -20,6 +20,16 @@ AWX Integration
 
 #. Modify blueprint as you needed
 
+    - **Credentials** - *use your private key* or refer --> :ref:`_getting_started`
+    - **Variables** in **Application Profile**
+    
+        - **public_key** - *use your public key* or refer --> :ref:`_getting_started`
+
+    - **image** - *select the image you just created*
+    - **cloudinit** - *use your cloudinit script* or refer --> :ref:`_getting_started`
+    - **network** - *select network*
+    - **Save** the blueprint
+
 #. After blueprint launched, you will get a workable AWX. Open browser to access the AWX VM's IP address. Default credential is **admin/password**
 
     .. figure:: images/awx1.png
@@ -27,7 +37,7 @@ AWX Integration
 2. Setup AWX
 ------------
 
-#. Go to **Inventory Scripts** and add new one
+#. Go to **Inventory Scripts** from the left side, click ``green`` plus button on the right side to add new one
 
     .. figure:: images/awx-inv-script.png
 
@@ -35,17 +45,18 @@ AWX Integration
     - get script from here ``https://raw.githubusercontent.com/pipoe2h/ansible-nutanix-prismcentral-inventory/master/prism_central.py``
     - **Save**
 
-#. Create a new inventory
+#. Go to **Inventories** from the left side, click ``green`` plus button on the right side to add new one
 
     .. figure:: images/awx-inv1.png
 
     - **Name** - *Nutanix Inventory*
     - **Save**
-#. Go to **Sources**
+
+#. Go to **SOURCES** from the top
 
     .. figure:: images/awx-inv2.png
 
-#. Add a **Source** to this inventory
+#. Click ``green`` plus button to add a **Source** to this inventory
 
     .. figure:: images/awx-inv3.png
 
@@ -66,6 +77,10 @@ AWX Integration
 
 #. Start sync
 
+    - Go back to **SOURCE** from top navigator path
+
+        .. figure:: images/awx-navigator1.png
+
     - Click ``Start sync process`` to capture VMs info to inventory
 
         .. figure:: images/awx-inv4.png
@@ -78,21 +93,22 @@ AWX Integration
 
         .. figure:: images/awx-inv6.png
 
-#. Go to **Credentials** and add new one for VMs which we will create later
+#. Go to **Credentials** from left side and add new one for VMs which we will create later
 
     .. figure:: images/awx-cred2.png
 
     - **NAME** - *Nutanix VM*
+    - **ORGANIZATION** - *Default*
     - **CREDENTIAL TYPE** - *Machine*
     - **USERNAME** - *centos*
-    - **SSH PRIVATE KEY** - *user your private key*
+    - **SSH PRIVATE KEY** - *user your private key* or refer --> :ref:`_getting_started`
     - **Save**
 
     .. note:: USERNAME and Password/Private Key should be same with the credential in ``blueprint-managed-vm``
 
 #. Go to Projects
 
-    - click ``Get latest SCM revision``, it will download ansible playbooks to local for following lab
+    - click ``Get latest SCM revision``, it will download ansible playbooks to local for this lab
 
         .. figure:: images/awx-proj0.png
 
@@ -126,12 +142,12 @@ AWX Integration
 
             .. figure:: images/awx-proj6.png
 
-#. Go to **Jobs**, and wait magic happen ...
+#. Go to **Jobs** from left side, and wait magic happen ...
 
 3. Create VM managed by AWX
 ---------------------------
 
-#. Download blueprint from HERE: :download:`blueprint: ansible-managed-vm <./ansible-managed-vm.json>`
+#. Download blueprint from HERE: :download:`blueprint: ansible-awx-managed-vm <./ansible-awx-managed-vm.json>`
 
 #. This is a simple blueprint with one service. One bash task in service's **Package** --> **Install**
 
@@ -148,30 +164,17 @@ AWX Integration
 
         - **host_config_key** - *your host config key*
         - **callback_url** - *your callback url*
-        - **public_key** - *inject your public key to VM*
+        - **public_key** - *inject your public key* or refer --> :ref:`_getting_started`
 
     - Assign a linux image
-    - Assign cloudinit script
-
-        .. code-block:: 
-
-            #cloud-config
-            disable_root: False
-            ssh_enabled: True
-            ssh_pwauth: True
-            users:
-              - name: centos
-                ssh-authorized-keys:
-                  - ssh-rsa @@{public_key}@@
-                sudo: ['ALL=(ALL) NOPASSWD:ALL']
-
+    - Assign cloudinit script, use your cloudinit script or refer --> :ref:`_getting_started`
     - Add nic and assign network
     - Create a credential 
 
         - **Credential Name** - *centos*
         - **Username** - *centos*
         - **Secret Type** - *SSH Private Key*
-        - **SSH Private Key** - *paste your private key here*
+        - **SSH Private Key** - *paste your private key* or refer --> :ref:`_getting_started`
 
 #. Save and launch blueprint
 

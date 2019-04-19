@@ -34,7 +34,7 @@
 Getting Start
 ---------------
 
-Welcome to lab for APJ SE
+Welcome to labs for APJ SE
 
 
 Labs we have
@@ -57,7 +57,7 @@ Sample SSH Key for all albs
 
 - Private key
 
-    .. code-block:: language
+    .. code-block:: 
 
         -----BEGIN OPENSSH PRIVATE KEY-----
         b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAABFwAAAAdzc2gtcn
@@ -90,7 +90,22 @@ Sample SSH Key for all albs
 
 - Public key
 
-    .. code-block:: language
+    .. code-block:: 
 
         ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCy9+19bVdjN2Uet/jCZD7S+0GQBlv0eOu2tcKqx5p/wWhfiT8ND0U3eklG1UlTTbRA+1sqBHkxoD0GdLsSV0Isr+3R3FlJgn7uhd0IzINjaN9PP7I2D4UATAvUpe13vqhsSxPEEahw9PeruyPABopZnZkhcqHE+x/FHeBEf2daqmZ/Yl5nlejUd5el49KkS+wKCjfwTmrIDYGbYAtq/9uApdNxsyy9ECgVyuue5lIziXnV7R4/ZPdOB+pZi7T4Sc7BytHW5C/go0tPoA6jPkO19ZyDV9yz6iU4x2Ho7FROP3bxV3sZGmTM2jJrOcAd3Rosm2sJEaYxSP2TBrMKEFJL stevenpan@stevenpans-MacBook-Pro.local
+
+- Standarded cloud-init script
+
+    .. code-block:: 
+
+        #cloud-config
+        disable_root: False
+        ssh_enabled: True
+        ssh_pwauth: True
+        users:
+          - name: centos
+            ssh-authorized-keys:
+              - ssh-rsa @@{public_key}@@
+            sudo: ['ALL=(ALL) NOPASSWD:ALL']
+
 
