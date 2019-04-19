@@ -9,7 +9,12 @@ LAB: Ansible Integration
 AWX Integration
 +++++++++++++++
 
-1. Create AWX
+1. Overview
+-----------
+
+- Online video is here: ````
+
+2. Create AWX
 -------------
 
 #. Using default CentOS image, copy this url and **Add Image from URL**
@@ -34,7 +39,7 @@ AWX Integration
 
     .. figure:: images/awx1.png
 
-2. Setup AWX
+3. Setup AWX
 ------------
 
 #. Go to **Inventory Scripts** from the left side, click ``green`` plus button on the right side to add new one
@@ -144,7 +149,7 @@ AWX Integration
 
 #. Go to **Jobs** from left side, and wait magic happen ...
 
-3. Create VM managed by AWX
+4. Create VM managed by AWX
 ---------------------------
 
 #. Download blueprint from HERE: :download:`blueprint: ansible-awx-managed-vm <./ansible-awx-managed-vm.json>`
@@ -178,7 +183,7 @@ AWX Integration
 
 #. Save and launch blueprint
 
-4. Check playbook is running on VM
+5. Check playbook is running on VM
 ----------------------------------
 
 #. Back to AWX UI, go to **Jobs**
