@@ -156,7 +156,7 @@ AWX Integration
 
 #. This is a simple blueprint with one service. One bash task in service's **Package** --> **Install**
 
-    .. here is an sample, use your ``HOST CONFIG KEY`` and ``PROVISIONING CALLBACK URL``
+    .. note:: here is an sample, use your ``HOST CONFIG KEY`` and ``PROVISIONING CALLBACK URL``
     
     .. code-block:: bash
 
