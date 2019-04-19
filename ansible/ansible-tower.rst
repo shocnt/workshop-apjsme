@@ -13,7 +13,11 @@ Ansible Tower Integration
 ------------------------
 
 #. add image using this url: `centos6.qcow2 <https://s3.ap-northeast-2.amazonaws.com/panlm-images/centos6.qcow2>`_
-#. Create VM from this image, login with default credential: ``root / nutanix/4u``
+#. Create VM from this image, login with default credential: 
+
+    - username: ``root``
+    - password: ``nutanix/4u``
+
 #. Generate ssh key pair
 
     .. code-block:: bash
@@ -105,11 +109,11 @@ Ansible Tower Integration
 
     - As prompt, run these commands
 
-        .. code-block:: bash
+    .. code-block:: bash
 
-            ssh-agent bash
-            ssh-add /root/.ssh/id_rsa
-            ./setup.sh
+        ssh-agent bash
+        ssh-add /root/.ssh/id_rsa
+        ./setup.sh
         
     - wait until setup finished
 
@@ -222,11 +226,9 @@ Ansible Tower Integration
     - **Allow Provisioning Callbacks** - *checked*
     - Click right button to generate **Host Config Key**
     - **Machine Credential** - *Nutanix VM*
-    - **Save**
+    - **Save** and you will be prompt these important info
 
-    .. figure:: images/tower-job3.png
-
-    - Save these important information, we will use them in Calm blueprint
+        .. figure:: images/tower-job3.png
 
 #. Click **Jobs** on top of the page, wait for magic happen ;)
 
