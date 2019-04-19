@@ -12,14 +12,12 @@ AWX Integration
 1. Overview
 -----------
 
-- Online video is here: ````
+- Online video is here: `VIDEO <https://youtu.be/rWOAB9SLT5U>`_
 
 2. Create AWX
 -------------
 
-#. Using default CentOS image, copy this url and **Add Image from URL**
-
-    - ``http://download.nutanix.com/calm/CentOS-7-x86_64-GenericCloud-1801-01.qcow2``
+#. Using default CentOS image, copy this url and **Add Image** from **URL**. `CentOS-7-x86_64-GenericCloud-1801-01.qcow2 <http://download.nutanix.com/calm/CentOS-7-x86_64-GenericCloud-1801-01.qcow2>`_
 
 #. Download blueprint from HERE: :download:`blueprint: ansible-awx <./ansible-awx.json>`
 
@@ -47,7 +45,7 @@ AWX Integration
     .. figure:: images/awx-inv-script.png
 
     - **Name** - *prism central*
-    - get script from here ``https://raw.githubusercontent.com/pipoe2h/ansible-nutanix-prismcentral-inventory/master/prism_central.py``
+    - get script from here `prism_central.py <https://raw.githubusercontent.com/pipoe2h/ansible-nutanix-prismcentral-inventory/master/prism_central.py>`_
     - **Save**
 
 #. Go to **Inventories** from the left side, click ``green`` plus button on the right side to add new one
@@ -71,7 +69,7 @@ AWX Integration
     - **UPDATE ON LAUNCH** - *checked*
     - **ENVIRONMENT VARIABLES** - *prism_central_ip*, *prism_username*, *prism_password*
 
-        .. code-block:: yml
+        .. code-block:: yaml
         
             ---
             PC_IP_ADDR: 10.42.98.39

@@ -56,7 +56,7 @@ Labs we have
 
 .. _ssh_key:
 
-Sample SSH Key for all albs
+Sample SSH Key for all labs
 +++++++++++++++++++++++++++
 
 - Private key
