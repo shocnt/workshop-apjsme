@@ -1,10 +1,10 @@
-.. title:: LAB: Ansible Integration
+.. title:: LAB: Ansible AWX Integration
 
-.. _ansible:
+.. _ansible-awx:
 
-------------------------
-LAB: Ansible Integration
-------------------------
+----------------------------
+LAB: Ansible AWX Integration
+----------------------------
 
 AWX Integration
 +++++++++++++++
@@ -25,13 +25,13 @@ AWX Integration
 
 #. Modify blueprint as you needed
 
-    - **Credentials** - *use your private key* or refer --> :ref:`getting_started`
+    - **Credentials** - *use your private key* or refer --> :ref:`ssh_key`
     - **Variables** in **Application Profile**
     
-        - **public_key** - *use your public key* or refer --> :ref:`getting_started`
+        - **public_key** - *use your public key* or refer --> :ref:`ssh_key`
 
     - **image** - *select the image you just created*
-    - **cloudinit** - *use your cloudinit script* or refer --> :ref:`getting_started`
+    - **cloudinit** - *use your cloudinit script* or refer --> :ref:`ssh_key`
     - **network** - *select network*
     - **Save** the blueprint
 
@@ -106,7 +106,7 @@ AWX Integration
     - **ORGANIZATION** - *Default*
     - **CREDENTIAL TYPE** - *Machine*
     - **USERNAME** - *centos*
-    - **SSH PRIVATE KEY** - *user your private key* or refer --> :ref:`getting_started`
+    - **SSH PRIVATE KEY** - *user your private key* or refer --> :ref:`ssh_key`
     - **Save**
 
     .. note:: USERNAME and Password/Private Key should be same with the credential in ``blueprint-managed-vm``
@@ -169,17 +169,17 @@ AWX Integration
 
         - **host_config_key** - *your host config key*
         - **callback_url** - *your callback url*
-        - **public_key** - *inject your public key* or refer --> :ref:`getting_started`
+        - **public_key** - *inject your public key* or refer --> :ref:`ssh_key`
 
     - Assign a linux image
-    - Assign cloudinit script, use your cloudinit script or refer --> :ref:`getting_started`
+    - Assign cloudinit script, use your cloudinit script or refer --> :ref:`ssh_key`
     - Add nic and assign network
     - Create a credential 
 
         - **Credential Name** - *centos*
         - **Username** - *centos*
         - **Secret Type** - *SSH Private Key*
-        - **SSH Private Key** - *paste your private key* or refer --> :ref:`getting_started`
+        - **SSH Private Key** - *paste your private key* or refer --> :ref:`ssh_key`
 
 #. Save and launch blueprint
 

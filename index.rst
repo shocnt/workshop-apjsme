@@ -8,6 +8,7 @@
 
   cicd/cicd
   integration/integration
+  ansible/ansible-awx
 
 .. toctree::
   :maxdepth: 2
@@ -16,7 +17,7 @@
   :hidden:
 
   multicloud/multicloud
-  ansible/ansible
+  ansible/ansible-tower
   infoblox/infoblox
 
 .. toctree::
@@ -30,9 +31,9 @@
 
 .. _getting_started:
 
----------------
+-------------
 Getting Start
----------------
+-------------
 
 Welcome to labs for APJ SE
 
@@ -44,13 +45,16 @@ Labs we have
 
     - :ref:`cicd`
     - :ref:`integration`
+    - :ref:`ansible-awx`
 
 - Working Labs
 
     - :ref:`multicloud`
-    - :ref:`ansible`
+    - :ref:`ansible-tower`
     - :ref:`infoblox`
 
+
+.. _ssh_key:
 
 Sample SSH Key for all albs
 +++++++++++++++++++++++++++
