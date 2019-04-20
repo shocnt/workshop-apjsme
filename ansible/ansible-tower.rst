@@ -124,6 +124,22 @@ Ansible Tower Integration
 
     .. figure:: images/tower-ui1.png
 
+    - input Ansible Tower Trial License
+
+        .. code-block:: json
+
+            {
+                "company_name": "gmail", 
+                "contact_email": "stevenpan@gmail.com", 
+                "contact_name": "leiming pan", 
+                "hostname": "e5e213cd2495405d89d5ec4219d60487", 
+                "instance_count": 10, 
+                "license_date": 2123563929, 
+                "license_key": "d69b7cf6d4986e7ba21252ef5bc797e1848866d83056199caed2ec91752261c4", 
+                "license_type": "basic", 
+                "subscription_name": "Red Hat Ansible Tower, Self-Support (10 Managed Nodes)"
+            }
+
     .. figure:: images/tower-ui2.png
 
 #. Go to **setup** page from top-right button 
@@ -286,3 +302,8 @@ Reference
 +++++++++
 
 - Ansible 2.4 `Document <https://docs.ansible.com/ansible-tower/2.4.0/html/>`_
+
+
+
+
+
