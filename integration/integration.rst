@@ -9,9 +9,9 @@ LAB: Era, Flow, Epoch Integration Demo
 Overview
 ++++++++
 
-#. download video from HERE: ``https://www.dropbox.com/s/v1269dwd3jcn6eo/Calm-Epoch-Era-20190405.mp4?dl=0``
+#. Download video from HERE: ``https://www.dropbox.com/s/v1269dwd3jcn6eo/Calm-Epoch-Era-20190405.mp4?dl=0``
 
-#. download blueprint from HERE: :download:`Integration Demo Blueprint <./integration.json>`
+#. Download blueprint from HERE: :download:`Integration Demo Blueprint <./integration.json>`
 
 Era
 +++
@@ -115,7 +115,7 @@ Prepare Prism Central
 
 #. Some categories will be created manually for this lab.
 
-    - **AppTier** - add *App* and *DB* if not existed
+    - **AppTier** - add ``App`` and ``DB`` if not existed
 
         .. figure:: images_integration/int2.png
 
@@ -138,9 +138,7 @@ Prepare Prism Central
 Customized Blueprint
 ++++++++++++++++++++
 
-#. Please upload blueprint to Calm
-
-    - :download:`HERE <./integration.json>`
+#. Upload blueprint from HERE: :download:`Integration Demo Blueprint <./integration.json>`
 
 #. Customized blueprint to meet your environment
 
@@ -200,7 +198,7 @@ Integration Demo
 
     .. figure:: images_integration/int8.png
 
-    - check detail of security policy, we will find database and app in seperate *AppTier*, and this security policy just for *Environment* you just launched
+    - Check detail of security policy, we will find database and app in seperate *AppTier*, and this security policy just for *Environment* you just launched
 
         .. figure:: images_integration/int9.png
 
