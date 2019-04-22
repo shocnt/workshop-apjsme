@@ -9,7 +9,9 @@ LAB: Era, Flow, Epoch Integration Demo
 Overview
 ++++++++
 
-#. Download video from HERE: ``https://www.dropbox.com/s/v1269dwd3jcn6eo/Calm-Epoch-Era-20190405.mp4?dl=0``
+# Online vide from `HERE <https://www.youtube.com/watch?v=EgqfnI230DI>`_
+
+#. Download video from `HERE <https://www.dropbox.com/s/v1269dwd3jcn6eo/Calm-Epoch-Era-20190405.mp4?dl=0>`_
 
 #. Download blueprint from HERE: :download:`Integration Demo Blueprint <./integration.json>`
 
