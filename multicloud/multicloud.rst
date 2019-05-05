@@ -24,8 +24,8 @@ GCP
 
 #. Update Calm settings
 
-    - In **Settings** of Calm, Goto **Providers**
-    - **Add Provider**
+    - Click **Settings** of left navigate bar in Calm UI, Goto **Providers** tab.
+    - CLick **Add Provider**
 
         - **Name** - GCP
         - **TYPE** - GCP
@@ -91,4 +91,96 @@ Azure
 
     - **Address space** - 10.255.255.0/24
     - **Address range** - 10.255.255.0/25
+
+AWS EC2
++++++++
+
+#. Goto **IAM** service on AWS
+#. Click **Groups** from left navigate bar, Click **Create New Group** from top button
+
+    - **Group Name** - calm_ec2
+    - **Attach Policy** - *IAMReadOnlyAccess* and *AmazonEC2FullAccess*
+    - review as following screenshot and **Create Group**
+
+    .. figure:: images/aws5.png
+
+#. Click **Users** from left navigate bar, Click **Create New User** from top button
+
+    - **User Name** - calm_ec2
+    - **Access Type** - check *Programmatic access*
+    - **Set permissions** - *Add user to group*
+    - **Group** - *calm_ec2* (we created just now)
+    - **Add Tags** - *skip*
+    - review as following screenshot and **Create User**
+
+    .. figure:: images/aws13.png
+
+    .. figure:: images/aws14.png
+
+    - note down **Access key ID** and **Secret access key**
+
+#. Prepare ssh key
+
+    - Goto **EC2** service on AWS
+    - Click **Key Pairs** from left navigate bar
+    - Click **Import Key Pair** from top button, and select your public key or use this one --> :ref:`ssh_key_pub`
+
+#. Prepare images
+
+    - Goto **EC2** service on AWS
+    - Click **instance** from left navigate bar
+    - Launch instance as you needed
+    - **create image** from this instance
+
+#. Prepare security group
+
+    - Goto **EC2** service on AWS
+    - Click **Security Groups** from left navigate bar
+    - Create a security group or modify existed one as follow
+
+        - Inbound
+
+            .. figure:: images/secgroup1.png
+
+        - Outbound
+
+            .. figure:: images/secgroup2.png
+
+#. Update Calm settings
+
+    - Click **Settings** of left navigate bar in Calm UI, Goto **Providers** tab.
+    - CLick **Add Provider**
+
+        - **Name** - *calm_aws*
+        - **TYPE** - *AWS*
+        - **Access key ID** - *get access key id from previous step*
+        - **Secret access key** - *get secret access key from previous step*
+        - **Save** and **Verify**
+
+#. Update Project settings
+
+    - **Infrastructure** - choose *Local and Cloud resources* if needed
+    - **AWS** - choose the AWS account name you just created
+    - **Save**
+
+Kubernetes
+++++++++++
+
+Karbon
+------
+
+
+Google GKE
+----------
+
+
+Azure AKS
+---------
+
+
+Amazon EKS
+----------
+
+
+
 

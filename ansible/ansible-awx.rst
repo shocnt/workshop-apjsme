@@ -167,17 +167,17 @@ AWX Integration
 
         - **host_config_key** - *your host config key*
         - **callback_url** - *your callback url*
-        - **public_key** - *inject your public key* or refer --> :ref:`ssh_key`
+        - **public_key** - *inject your public key* or refer --> :ref:`ssh_key_pub`
 
     - Assign a linux image
-    - Assign cloudinit script, use your cloudinit script or refer --> :ref:`ssh_key`
+    - Assign cloudinit script, use your cloudinit script or refer --> :ref:`cloudinit`
     - Add nic and assign network
     - Create a credential 
 
         - **Credential Name** - *centos*
         - **Username** - *centos*
         - **Secret Type** - *SSH Private Key*
-        - **SSH Private Key** - *paste your private key* or refer --> :ref:`ssh_key`
+        - **SSH Private Key** - *paste your private key* or refer --> :ref:`ssh_key_pri`
 
 #. Save and launch blueprint
 
