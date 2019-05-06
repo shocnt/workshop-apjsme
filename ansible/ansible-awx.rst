@@ -119,6 +119,9 @@ AWX Integration
 
         .. figure:: images/awx-proj2.png
 
+        - Default URL - `https://github.com/ansible/ansible-tower-samples`
+        - Alternative URL - `https://github.com/panlm/myansible.git`
+
     - Click **JOB TEMPLATES**
 
         .. figure:: images/awx-proj3.png
