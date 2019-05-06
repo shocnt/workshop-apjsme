@@ -9,7 +9,7 @@ LAB: Era, Flow, Epoch Integration Demo
 Overview
 ++++++++
 
-# Online vide from `HERE <https://www.youtube.com/watch?v=EgqfnI230DI>`_
+#. Online vide from `HERE <https://www.youtube.com/watch?v=EgqfnI230DI>`_
 
 #. Download video from `HERE <https://www.dropbox.com/s/v1269dwd3jcn6eo/Calm-Epoch-Era-20190405.mp4?dl=0>`_
 
