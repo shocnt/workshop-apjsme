@@ -23,13 +23,13 @@ AWX Integration
 
 #. Modify blueprint as you needed
 
-    - **Credentials** - *use your private key* or refer --> :ref:`ssh_key`
+    - **Credentials** - *use your private key* or refer --> :ref:`ssh_key_priv`
     - **Variables** in **Application Profile**
     
-        - **public_key** - *use your public key* or refer --> :ref:`ssh_key`
+        - **public_key** - *use your public key* or refer --> :ref:`ssh_key_pub`
 
     - **image** - *select the image you just created*
-    - **cloudinit** - *use your cloudinit script* or refer --> :ref:`ssh_key`
+    - **cloudinit** - *use your cloudinit script* or refer --> :ref:`cloudinit`
     - **network** - *select network*
     - **Save** the blueprint
 
@@ -104,7 +104,7 @@ AWX Integration
     - **ORGANIZATION** - *Default*
     - **CREDENTIAL TYPE** - *Machine*
     - **USERNAME** - *centos*
-    - **SSH PRIVATE KEY** - *user your private key* or refer --> :ref:`ssh_key`
+    - **SSH PRIVATE KEY** - *user your private key* or refer --> :ref:`ssh_key_priv`
     - **Save**
 
     .. note:: USERNAME and Password/Private Key should be same with the credential in ``ansible-awx-managed-vm`` blueprint
@@ -180,7 +180,7 @@ AWX Integration
         - **Credential Name** - *centos*
         - **Username** - *centos*
         - **Secret Type** - *SSH Private Key*
-        - **SSH Private Key** - *paste your private key* or refer --> :ref:`ssh_key_pri`
+        - **SSH Private Key** - *paste your private key* or refer --> :ref:`ssh_key_priv`
 
 #. Save and launch blueprint
 

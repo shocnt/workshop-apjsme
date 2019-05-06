@@ -59,9 +59,9 @@ Labs we have
 Sample SSH Key for all labs
 +++++++++++++++++++++++++++
 
-.. _ssh_key_pri:
+.. _ssh_key_priv:
 
-Private key
+Private Key
 -----------
 
 .. code-block:: language
@@ -106,7 +106,7 @@ Public Key
 
 .. _cloudinit:
 
-Standarded cloud-init script
+Standarded Cloud-Init Script
 ----------------------------
 
     .. code-block:: language
