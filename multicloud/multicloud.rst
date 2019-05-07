@@ -43,11 +43,7 @@ GCP
 Azure
 +++++
 
-#. Check this video out.
-
-.. raw:: html
-
-    <iframe width="640" height="360" src="https://www.youtube.com/watch?v=7wNCiw1Jn5A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+#. Check this video out: https://www.youtube.com/watch?v=7wNCiw1Jn5A
 
 #. Get directory ID
 
