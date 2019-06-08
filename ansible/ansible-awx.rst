@@ -105,6 +105,8 @@ AWX Integration
     - **CREDENTIAL TYPE** - *Machine*
     - **USERNAME** - *centos*
     - **SSH PRIVATE KEY** - *user your private key* or refer --> :ref:`ssh_key_priv`
+    - **PRIVILEGE ESCALATION METHOD** - *sudo*
+    - **PRIVILEGE ESCALATION USERNAME** - *root*
     - **Save**
 
     .. note:: USERNAME and Password/Private Key should be same with the credential in ``ansible-awx-managed-vm`` blueprint
@@ -119,8 +121,8 @@ AWX Integration
 
         .. figure:: images/awx-proj2.png
 
+        - Prefer URL - `https://github.com/panlm/myansible.git`
         - Default URL - `https://github.com/ansible/ansible-tower-samples`
-        - Alternative URL - `https://github.com/panlm/myansible.git`
 
     - Click **JOB TEMPLATES**
 
