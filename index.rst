@@ -6,6 +6,7 @@
   :name: _labs
   :hidden:
 
+  portal/portal
   cicd/cicd
   integration/integration
   ansible/ansible-awx
@@ -48,6 +49,7 @@ Released Labs
 - :ref:`integration`
 - :ref:`ansible-awx`
 - :ref:`ansible-tower`
+- :ref:`portal`
 
 Working Labs
 ------------
