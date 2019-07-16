@@ -18,6 +18,9 @@ Overview
 Era
 +++
 
+.. note:: If you using Era version 1.0.1.5 and above, you need create network manually and named `DEFAULT_OOB_POSTGRESQL_NETWORK`
+
+
 Deploying Era
 -------------
 
