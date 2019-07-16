@@ -41,7 +41,7 @@ Launch
 
     .. figure:: images/p-login.png
 
-#. login your mail address and any characters in password field.
+#. login your mail address with **any characters** in password field.
 
     .. figure:: images/p-existed.png
 
@@ -60,27 +60,60 @@ Dashboard
 VM with approval flow
 ---------------------
 
-.. figure:: images/p-vm.png
+#. VM Management UI
 
-.. figure:: images/p-newvm.png
+    .. figure:: images/p-vm.png
 
-.. figure:: images/p-approval-1.png
+#. Submit creating VM request
 
-.. figure:: images/p-approval-2.png
+    - click **New**
+    - select **Image**
+    - select **Network**
+    - choose **VM Computing Size**
+    - choose **VM Storage Size**
+    - click **Submit** for approval
+
+    .. figure:: images/p-newvm.png
+
+    - click **Approval Flow** - **Pending**, you will see you request is pending
+
+    .. figure:: images/p-approval-1.png
+
+#. Approve request using admin@nutanix.com
+
+    - logout from right top icon
+    - login **admin@nutanix.com** account, using any characters as your password
+    - **Load** settings
+    - goto **Dashboard**
+    - goto **VM Pending** page
+    - click **approve**
+
+#. Login your account again, and you could deploy VM
+
+    .. figure:: images/p-approval-2.png
+
 
 Blueprint and App
 -----------------
 
-.. figure:: images/p-blueprint.png
+#. You could click blueprint name to see **App Profiles** in blueprint, also you could click **Launch** to launch this blueprint.
+
+    .. figure:: images/p-blueprint.png
+
+#. You could click application name to see **Actions** in application, also you could click **Delete** to delete this application.
 
 .. figure:: images/p-application.png
 
 Era
 ---
 
-.. figure:: images/p-era.png
+#. You could list all databases managed by era
 
-.. figure:: images/p-newera.png
+    .. figure:: images/p-era.png
+
+#. Click **New** to create database in Era. Please select all parameters relevanted to **PostgreSQL**
+
+    .. figure:: images/p-newera.png
 
 Billing
 -------
