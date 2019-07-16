@@ -7,10 +7,10 @@
   :hidden:
 
   portal/portal
-  cicd/cicd
   integration/integration
   ansible/ansible-awx
   ansible/ansible-tower
+  cicd/cicd
 
 .. toctree::
   :maxdepth: 2
@@ -20,6 +20,7 @@
 
   multicloud/multicloud
   infoblox/infoblox
+  zabbix/zabbix
 
 .. toctree::
   :maxdepth: 2
@@ -45,18 +46,18 @@ Labs we have
 Released Labs
 -------------
 
-- :ref:`cicd`
+- :ref:`portal`
 - :ref:`integration`
 - :ref:`ansible-awx`
 - :ref:`ansible-tower`
-- :ref:`portal`
+- :ref:`cicd`
 
 Working Labs
 ------------
 
 - :ref:`multicloud`
 - :ref:`infoblox`
-
+- :ref:`zabbix`
 
 .. _ssh_key:
 
