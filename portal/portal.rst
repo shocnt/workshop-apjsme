@@ -45,7 +45,7 @@ Launch
 
     .. figure:: images/p-existed.png
 
-#. Click **Load** to load existed settings or you could click **Inpurt** to input your Prism Central / Era credentials
+#. Click **Load** to load existed settings or you could click **Input** to input your Prism Central / Era credentials
 
 
 Sample Screenshots
@@ -93,8 +93,8 @@ VM with approval flow
     .. figure:: images/p-approval-2.png
 
 
-Blueprint and App
------------------
+Blueprint and Application
+-------------------------
 
 #. You could click blueprint name to see **App Profiles** in blueprint, also you could click **Launch** to launch this blueprint.
 
@@ -102,12 +102,12 @@ Blueprint and App
 
 #. You could click application name to see **Actions** in application, also you could click **Delete** to delete this application.
 
-.. figure:: images/p-application.png
+    .. figure:: images/p-application.png
 
 Era
 ---
 
-#. You could list all databases managed by era
+#. You could list all databases managed by Era
 
     .. figure:: images/p-era.png
 
