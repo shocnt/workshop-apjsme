@@ -11,9 +11,9 @@ Launch
 
 #. Before you start
 
-##. one CentOS 7 VM
-##. Prism Central
-##. (Option) Era VM
+    - one CentOS 7 VM
+    - Prism Central
+    - (Option) Era VM
 
 #. Setup docker environment
 
@@ -33,7 +33,9 @@ Launch
         sudo docker pull panlm:ntnx/app2
         sudo docker run -d --name app2 -p 5000:5000 panlm/ntnx:app2
 
-#. Open browser with your centos 7 ip address and port `5000` to access this app2. `http://x.x.x.x:5000/`
+#. Open browser with your centos 7 ip address and port `5000` to access this app2. 
+
+    - `http://x.x.x.x:5000/`
 
     .. figure:: images/p-login.png
 
