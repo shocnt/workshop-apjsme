@@ -10,12 +10,12 @@ Import Blueprints
 +++++++++++++++++
 
 #. Please download 2 blueprints for this lab: 
-    - :download:`CICD Base <./CICD-Base.json>`
-    - :download:`CICD App <./CICD-App.json>`
+    - :download:`CICD Base <https://github.com/panlm/NTNX/raw/master/calm/blueprints/CICD-Base.json>`
+    - :download:`CICD App <https://github.com/panlm/NTNX/raw/master/calm/blueprints/CICD-App-noEpoch.json>`
 
 #. upload blueprints
 
-#. download and import ubuntu image for these blueprint ``https://s3.ap-northeast-2.amazonaws.com/panlm-images/ubu-template.qcow2``
+#. download and import ubuntu image for these blueprint :download:`ubuntu template <https://s3.ap-northeast-2.amazonaws.com/panlm-images/ubu-template.qcow2>`
 
 Edit & Launch CI/CD Blueprint
 +++++++++++++++++++++++++++++
