@@ -117,7 +117,10 @@ Overview
 
 - Using **Terraform** to focus on IAC (Infrastructure as a Code)
 - Using **Calm** to focus on application deployment, and Day 2 operation
-- Download blueprint from here: :download:`Alicloud ECS with TF <https://github.com/panlm/NTNX/raw/master/calm/blueprints/TF-Alicloud.json>`
+- Download blueprints you want to try: 
+
+    - :download:`Alicloud ECS with TF <https://github.com/panlm/NTNX/raw/master/calm/blueprints/TF-Alicloud.json>`
+    - :download:`AWS EC2 with TF <https://github.com/panlm/NTNX/raw/master/calm/blueprints/TF-AWS.json>`
 
 Blueprint
 ---------
