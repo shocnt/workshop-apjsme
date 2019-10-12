@@ -21,22 +21,22 @@ Prerequisite
 - You should have at least one **image template** available and at lease one **key pair** existed
 - You should be a fan of **CLI** (just kidding!)
 
-3-step to deploy VM with Terraform
-----------------------------------
+3-step to deploy AWS EC2 with Terraform
+---------------------------------------
 
 #. install **terraform** on your Laptop. (this is Macbook example, for more OS, check link `HERE <https://www.terraform.io/downloads.html>`_)
 
-    - download binary for your OS :download:`MacOS 64-bit <https://releases.hashicorp.com/terraform/0.12.10/terraform_0.12.10_darwin_amd64.zip>`
+    - download binary for your OS, for example: :download:`MacOS 64-bit <https://releases.hashicorp.com/terraform/0.12.10/terraform_0.12.10_darwin_amd64.zip>`
     - unzip it
-    - move `terraform` to your `/usr/local/bin/`
-    - try to run `terraform --version` to verify it is workable
+    - move **terraform** to your **/usr/local/bin/**
+    - try to run **terraform --version** to verify it is workable
 
 #. create aws config
 
     - create a new folder for test
     - copy and paste following code, it will help you to create a file named **aws.tf**
 
-        .. code-block:: language
+        .. code-block:: bash
         
             echo '
             # using your access_key and secret_key
