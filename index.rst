@@ -11,6 +11,7 @@
   ansible/ansible-awx
   ansible/ansible-tower
   cicd/cicd
+  terraform/terraform
 
 .. toctree::
   :maxdepth: 2
@@ -51,6 +52,7 @@ Released Labs
 - :ref:`ansible-awx`
 - :ref:`ansible-tower`
 - :ref:`cicd`
+- :ref:`terraform`
 
 Working Labs
 ------------
@@ -111,8 +113,8 @@ Public Key
 
 .. _cloudinit:
 
-Standarded Cloud-Init Script
-----------------------------
+standard Cloud-Init Script with *SSH KEY*
+-----------------------------------------
 
     .. code-block:: language
 
@@ -125,5 +127,26 @@ Standarded Cloud-Init Script
             ssh-authorized-keys:
               - ssh-rsa @@{public_key}@@
             sudo: ['ALL=(ALL) NOPASSWD:ALL']
+
+
+standard Cloud-Init Script with *Username and Password*
+-------------------------------------------------------
+
+    .. code-block:: language
+
+        #cloud-config
+        disable_root: False
+        ssh_pwauth: True
+        password: nutanix/4u
+        chpasswd: { expire: False }
+
+
+
+
+
+
+
+
+
 
 
