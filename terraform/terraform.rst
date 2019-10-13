@@ -39,6 +39,9 @@ Prerequisite
         .. code-block:: bash
         
             echo '
+            # will create ssh key for each instance, keep key name different
+            variable "key_name" {}
+
             # using your access_key and secret_key
             provider "aws" {
                 region = "ap-northeast-2"
@@ -46,40 +49,75 @@ Prerequisite
                 secret_key = "xxx"
             }
 
+            # create ssh key pair
+            resource "tls_private_key" "example" {
+                algorithm = "RSA"
+                rsa_bits  = 4096
+            }
+
+            # upload public key to aws, using defined name
+            resource "aws_key_pair" "generated_key" {
+                key_name   = "${var.key_name}"
+                public_key = "${tls_private_key.example.public_key_openssh}"
+            }
+
+            # save private key to output for CLI
+            output "privatekey" {
+                value = "${tls_private_key.example.private_key_pem}"
+            }            
+
             # find the image name with regex in your self image list, 
-            # or you could get image from ami market
-            data "aws_ami" "image" {
-                name_regex = "^centos.*"
-                owners     = ["self"]
+            #data "aws_ami" "image" {
+            #    name_regex = "^centos.*"
+            #    owners     = ["self"]
+            #}
+
+            # or you could get standard image from public
+            data "aws_ami" "latest-ubuntu" {
+                most_recent = true
+                owners = ["099720109477"] # Canonical
+                filter {
+                    name   = "name"
+                    values = ["ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-*"]
+                }
+                filter {
+                    name   = "virtualization-type"
+                    values = ["hvm"]
+                }
+                filter {
+                    name   = "root-device-type"
+                    values = ["ebs"]
+                }
             }
 
             # create instance
-            # using your key pair name, no username/password login permitted in AWS EC2
-            # after instance created successfully, will try to create a connection to execute some commands
-            # remote-exec will execute commands in your AWS EC2 instance
-            # local-exec will execute commands in this Terraform VM to save the public ip address to a temproary file
             resource "aws_instance" "example" {
-                ami           = data.aws_ami.image.image_id
+                ami           = data.aws_ami.latest-ubuntu.image_id
                 instance_type = "t2.micro"
-                key_name      = "root-key"
+    
+                # using the key name we just create
+                key_name      = "${aws_key_pair.generated_key.key_name}"
 
                 tags = {
                     name = "TerrVM"
                 }
 
+                # after instance created successfully, will try to create a connection to execute some commands
                 connection {
                     host        = "${aws_instance.example.public_ip}"
                     type        = "ssh"
-                    user        = "centos"
-                    private_key = file("~/.ssh/id_rsa")
+                    user        = "ubuntu" #default user in ami
+                    private_key = "${tls_private_key.example.private_key_pem}"
                 }
 
+                # remote-exec will execute commands in your AWS EC2 instance
                 provisioner "remote-exec" {
                     inline = [
                         "echo ${aws_instance.example.public_ip} > pub_ip_addr",
                     ]
                 }
 
+                # local-exec will execute commands in this Terraform VM to save the public ip address to a temproary file
                 provisioner "local-exec" {
                     command = "echo ${aws_instance.example.public_ip} > /tmp/pub_ip_addr"
                 }
@@ -93,12 +131,26 @@ Prerequisite
 
 #. run **terraform**
 
-    - execute following command to launch aws instance
+    - execute following command to launch aws ec2 instance
 
         .. code-block:: bash
 
             terraform init
-            terraform apply
+            terraform apply -var key_name="tfkey-111"
+
+    - execute following command to get some variable we define in output
+
+        .. code-block:: bash
+
+            terraform output publicip
+            terraform output privatekey
+
+    - execute following command to terminate aws ec2 instance
+
+        .. code-block:: bash
+
+            terraform init
+            terraform destroy -var key_name="tfkey-111"
 
 More explanation about terraform config file
 --------------------------------------------
@@ -119,8 +171,8 @@ Overview
 - Using **Calm** to focus on application deployment, and Day 2 operation
 - Download blueprints you want to try: 
 
-    - :download:`Alicloud ECS with TF <https://github.com/panlm/NTNX/raw/master/calm/blueprints/TF-Alicloud.json>`
-    - :download:`AWS EC2 with TF <https://github.com/panlm/NTNX/raw/master/calm/blueprints/TF-AWS.json>`
+    - :download:`Alicloud ECS with TF <https://github.com/panlm/NTNX/raw/master/calm/blueprints/Terraform-Alicloud.json>`
+    - :download:`AWS EC2 with TF <https://github.com/panlm/NTNX/raw/master/calm/blueprints/Terraform-AWS.json>`
 
 Blueprint
 ---------
