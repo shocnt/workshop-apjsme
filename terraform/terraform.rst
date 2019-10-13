@@ -18,7 +18,6 @@ Prerequisite
     - For Alicloud, you should know RAM, ECS, etc.
 
 - You should have an account of public cloud privider (AWS or Alicloud) for this lab with **Programmatic access** enabled.
-- You should have at least one **image template** available and at lease one **key pair** existed
 - You should be a fan of **CLI** (just kidding!)
 
 3-step to deploy AWS EC2 with Terraform
