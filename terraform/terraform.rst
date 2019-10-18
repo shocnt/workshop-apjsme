@@ -236,3 +236,11 @@ How about Nutanix Calm
 - Calm not only focus on deployment, but operation. Allow more operation tasks to be defined to make routing jobs more easier.
 - Let end users to consume IT resources more easier with SSP and Marketplace.
 
+- Offical Calm Pitch
+
+    - Calm is a multi-cloud application management framework delivered by Nutanix.  Calm provides application automation and lifecycle management natively integrated into the Nutanix Platform.  With Calm, applications are defined via simple blueprints that can be easily created using industry standard skills and control all aspects of the application’s lifecycle, such as provisioning, scaling, and cleanup. Once created, a blueprint can be easily published to end users through the Nutanix Marketplace, instantly transforming a complex provisioning ticket into a simple one-click request. 
+    - **One-Click Self-Service**: Self-service can now be delivered with Nutanix’s signature one-click simplicity
+    - **Natively Nutanix Integration**: No need to install a new fleet of management tools and HCLs
+    - **Multi-Cloud Adaptability**: Define applications once, Calm can provision them to public clouds when needed, providing a single self-service portal for all resources
+    - **Flexible and Open Automation**: Augment and integrate with any tool or product already in use – Calm can call any API and be called by any API
+    - **No new complex skills required**: Calm uses industry standard skills - such as bash, PowerShell and Python – to automate every aspect of an application so you can jump right in and get started 
