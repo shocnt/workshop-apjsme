@@ -6,40 +6,41 @@
 LAB: Terraform Leveraging
 -------------------------
 
-How Easy Terraform Is ！
-+++++++++++++++++++++++
+Check out how easy Terraform is to integrate with Calm!
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Prerequisite
 ------------
 
-- You should know basic concept of services provided by mainly public cloud. 
+- You should have a basic understanding of services provided by public clouds.
 
     - For AWS, you should know IAM, EC2, etc. 
     - For Alicloud, you should know RAM, ECS, etc.
 
-- You should have an account of public cloud privider (AWS or Alicloud) for this lab with **Programmatic access** enabled.
+- You should have public-cloud privider accounts (AWS or Alicloud) for this lab with **Programmatic access** enabled.
 - You should be a fan of **CLI** (just kidding!)
 
-3-step to deploy AWS EC2 with Terraform
----------------------------------------
+3-steps to deploy AWS EC2 with Terraform
+----------------------------------------
 
-#. install **terraform** on your Laptop. (this is Macbook example, for more OS, check link `HERE <https://www.terraform.io/downloads.html>`_)
+#. Install **terraform** on your Laptop. (This is Macbook example, for more OS, check the link `HERE <https://www.terraform.io/downloads.html>`_)
 
-    - download binary for your OS, for example: :download:`MacOS 64-bit <https://releases.hashicorp.com/terraform/0.12.10/terraform_0.12.10_darwin_amd64.zip>`
-    - unzip it
-    - move **terraform** to your **/usr/local/bin/**
+    - Download the binaries for your OS, for example: :download:`MacOS 64-bit <https://releases.hashicorp.com/terraform/0.12.10/terraform_0.12.10_darwin_amd64.zip>`
+    - Unzip it
+    - Move **terraform** to your **/usr/local/bin/**
     - try to run **terraform --version** to verify it is workable
 
-#. create aws config
+#. Create AWS config
 
-    - create a new folder for test
-    - copy and paste following code, it will help you to create a file named **aws.tf**
+    - Create a new folder for test purposes
+    - Copy and paste following code, it will help you to create a file named **aws.tf**
 
         .. code-block:: bash
         
             echo '
             # will create ssh key for each instance, keep key name different
             variable "key_name" {}
+            variable "instance_num" {}
 
             # using your access_key and secret_key
             provider "aws" {
@@ -91,6 +92,8 @@ Prerequisite
 
             # create instance
             resource "aws_instance" "example" {
+                # using count to create multi instances, unfortunately, this character do not support in alicloud
+                count         = "${var.instance_num}"
                 ami           = data.aws_ami.latest-ubuntu.image_id
                 instance_type = "t2.micro"
     
@@ -103,7 +106,7 @@ Prerequisite
 
                 # after instance created successfully, will try to create a connection to execute some commands
                 connection {
-                    host        = "${aws_instance.example.public_ip}"
+                    host        = "${self.public_ip}"
                     type        = "ssh"
                     user        = "ubuntu" #default user in ami
                     private_key = "${tls_private_key.example.private_key_pem}"
@@ -112,63 +115,54 @@ Prerequisite
                 # remote-exec will execute commands in your AWS EC2 instance
                 provisioner "remote-exec" {
                     inline = [
-                        "echo ${aws_instance.example.public_ip} > pub_ip_addr",
+                        "echo ${self.public_ip} > pub_ip_addr",
                     ]
                 }
 
                 # local-exec will execute commands in this Terraform VM to save the public ip address to a temproary file
                 provisioner "local-exec" {
-                    command = "echo ${aws_instance.example.public_ip} > /tmp/pub_ip_addr"
+                    command = "echo ${self.public_ip} > /tmp/pub_ip_addr"
                 }
             }
 
             # print something in stdout
             output "publicip" {
-                value = "${aws_instance.example.public_ip}"
+                value = "${aws_instance.example[*].public_ip}"
             }
             ' |tee aws.tf
 
 #. run **terraform**
 
-    - execute following command to launch aws ec2 instance
+    - Execute the following commands to launch AWS EC2 instances
 
         .. code-block:: bash
 
             terraform init
-            terraform apply -var key_name="tfkey-111"
+            terraform apply -var key_name="tfkey-111" -var instance_num=3
 
-    - execute following command to get some variable we define in output
+    - Execute the following commands to get some variable we define in output
 
         .. code-block:: bash
 
             terraform output publicip
             terraform output privatekey
 
-    - execute following command to terminate aws ec2 instance
+    - Execute the following commands to terminate AWS EC2 instances
 
         .. code-block:: bash
 
             terraform init
-            terraform destroy -var key_name="tfkey-111"
+            terraform destroy -var key_name="tfkey-111" -var instance_num=3
 
-More explanation about terraform config file
---------------------------------------------
-
-- Comment in code. if you do not understand well, please google it :D
-- extend reading
-
-    - `Introduce Terraform <https://blog.gruntwork.io/an-introduction-to-terraform-f17df9c6d180>`_
-    - `Using Terraform <https://blog.gruntwork.io/why-we-use-terraform-and-not-chef-puppet-ansible-saltstack-or-cloudformation-7989dad2865c>`_
-
-Using Terraform to help Calm support Alicloud
-+++++++++++++++++++++++++++++++++++++++++++++
+Using Terraform to allow Calm to support Alicloud
++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Overview
 --------
 
 - Using **Terraform** to focus on IAC (Infrastructure as a Code)
-- Using **Calm** to focus on application deployment, and Day 2 operation
-- Download blueprints you want to try: 
+- Using **Calm** to focus on application deployment, and Day 2 operations
+- Download blueprints you want to try:
 
     - :download:`Alicloud ECS with TF <https://github.com/panlm/NTNX/raw/master/calm/blueprints/Terraform-Alicloud.json>`
     - :download:`AWS EC2 with TF <https://github.com/panlm/NTNX/raw/master/calm/blueprints/Terraform-AWS.json>`
@@ -182,22 +176,54 @@ Blueprint
 
         .. figure:: images/terr1.png
 
-    - you could just give 1 vcpu / 1 GB memory to this VM
-    - execute `terraform` command from this VM, create ECS instance on Alicloud, and get the public ip of the new instance
+    - You can assign 1 vcpu / 1 GB memory to this VM
+    - Execute `terraform` command on this VM and create ECS instances on Alicloud. Get the public IP of the new instance.
 
 - **Service 2**: Existed VM
 
     - New a Service, **Cloud** is **Existing Machine**
-    - Get the IP address from previous services `@@{Terraform.alicloud_ecs_pub_ip}@@`
+    - Get the IP addresses from previous services `@@{Terraform.ecs_pub_ip[calm_array_index]}@@`
 
         .. figure:: images/terr2.png
 
 Launch It
 ---------
 
-- Launch successfully, you will see the public ip of Alicloud ECS
+- If you need to create multi ECS instances on Alicloud, just assign variable **num** before you launch blueprint.
+- If you launch successfully, you will see the public IP of Alicloud ECS.
 
     .. figure:: images/terr3.png
 
 
+Key Takeaways
++++++++++++++
 
+Configuration Management vs Provisioning
+----------------------------------------
+
+- **Chef, Puppet, Ansible, and SaltStack** are all configuration management tools, which means they are designed to install and manage software on existing servers. 
+- **CloudFormation and Terraform** are provisioning tools, which means they are designed to provision the servers themselves (as well as the rest of your infrastructure, like load balancers, databases, networking configuration, etc), leaving the job of configuring those servers to other tools.
+
+Mutable Infrastructure vs Immutable Infrastructure
+--------------------------------------------------
+
+- Configuration management tools such as **Chef, Puppet, Ansible, and SaltStack** typically default to a mutable infrastructure paradigm. 
+    
+    - Best scenario is if you try to do some advanced or customized configuration in your deployment
+
+- Provisioning tools such as **Terraform** typically default to a immutable infrastructure paradigm.
+
+    - Best scenarios is if you just need basic OS and docker or kubernetes, no more customization
+    - If you try to do some customization after provisioning with terraform, it will be not very elegant.
+
+Procedural vs Declarative
+-------------------------
+
+- **Chef and Ansible** encourage a procedural style where you write code that specifies, step-by-step, how to to achieve some desired end state.
+- **Terraform, CloudFormation, SaltStack, and Puppet** all encourage a more declarative style where you write code that specifies your desired end state, and the IAC tool itself is responsible for figuring out how to achieve that state.
+
+Additional Reading
+------------------
+
+- `Introduce Terraform <https://blog.gruntwork.io/an-introduction-to-terraform-f17df9c6d180>`_
+- `Compare Terraform with Chef/Ansible/Puppet/Saltstack/Cloud formation <https://blog.gruntwork.io/why-we-use-terraform-and-not-chef-puppet-ansible-saltstack-or-cloudformation-7989dad2865c>`_
