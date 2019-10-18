@@ -225,5 +225,14 @@ Procedural vs Declarative
 Additional Reading
 ------------------
 
-- `Introduce Terraform <https://blog.gruntwork.io/an-introduction-to-terraform-f17df9c6d180>`_
 - `Compare Terraform with Chef/Ansible/Puppet/Saltstack/Cloud formation <https://blog.gruntwork.io/why-we-use-terraform-and-not-chef-puppet-ansible-saltstack-or-cloudformation-7989dad2865c>`_
+- `Introduce Terraform <https://blog.gruntwork.io/an-introduction-to-terraform-f17df9c6d180>`_
+
+How about Nutanix Calm
+----------------------
+
+- Calm should be positioned as **Application Lifecycle Management** tool. From application perspective to management all VMs on any infrastructure. 
+- Calm could eliminate technical fragmentations for your infrastructure. Help IT to leverage or integrate existed tool to a single pane of glass.
+- Allow more operation task to simplify routing jobs.
+- Let end users to consume IT resources more easier with SSP and Marketplace.
+
