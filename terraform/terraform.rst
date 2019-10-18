@@ -231,8 +231,8 @@ Additional Reading
 How about Nutanix Calm
 ----------------------
 
-- Calm should be positioned as **Application Lifecycle Management** tool. From application perspective to management all VMs on any infrastructure. 
+- Calm should be positioned as automation tool for **Application Lifecycle Management**. From application perspective to management all VMs on any infrastructure. 
 - Calm could eliminate technical fragmentations for your infrastructure. Help IT to leverage or integrate existed tool to a single pane of glass.
-- Allow more operation task to simplify routing jobs.
+- Calm not only focus on deployment, but operation. Allow more operation tasks to be defined to make routing jobs more easier.
 - Let end users to consume IT resources more easier with SSP and Marketplace.
 
