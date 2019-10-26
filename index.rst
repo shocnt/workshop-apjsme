@@ -47,19 +47,19 @@ Labs we have
 Released Labs
 -------------
 
-- :ref:`portal`
-- :ref:`integration`
-- :ref:`ansible-awx`
-- :ref:`ansible-tower`
-- :ref:`cicd`
-- :ref:`terraform`
+- :ref:`portal` (Jul 2019)
+- :ref:`integration` (Mar 2019)
+- :ref:`ansible-awx` (Apr 2019)
+- :ref:`ansible-tower` (Apr 2019)
+- :ref:`cicd` (Mar 2019)
+- :ref:`terraform` (Oct 2019)
 
 Working Labs
 ------------
 
-- :ref:`multicloud`
+- :ref:`multicloud` (May 2019)
 - :ref:`infoblox`
-- :ref:`zabbix`
+- :ref:`zabbix` (Jul 2019)
 
 .. _ssh_key:
 

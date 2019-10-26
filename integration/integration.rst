@@ -18,7 +18,9 @@ Overview
 Prepare Era VM
 ++++++++++++++
 
-.. note:: If you using Era version 1.0.1.5 and above, you need create network manually and named `DEFAULT_OOB_POSTGRESQL_NETWORK`
+.. note:: If you using Era version 1.0.1.5, you need create network manually and named `DEFAULT_OOB_POSTGRESQL_NETWORK`
+
+.. note:: Verified on  Era version 1.1.1
 
 
 Deploying Era
