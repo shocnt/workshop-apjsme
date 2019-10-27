@@ -1,6 +1,6 @@
 .. title:: LAB: APJ SME Portal
 
-.. _apjsme:
+.. _portal:
 
 -------------------
 LAB: APJ SME Portal
