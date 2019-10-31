@@ -1,10 +1,10 @@
-.. title:: LAB: APJ SME Portal
+.. title:: APJ SME Portal
 
 .. _portal:
 
--------------------
-LAB: APJ SME Portal
--------------------
+--------------
+APJ SME Portal
+--------------
 
 Launch
 ++++++

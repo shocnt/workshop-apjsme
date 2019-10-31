@@ -1,10 +1,10 @@
-.. title:: LAB: Terraform Leveraging
+.. title:: Terraform Leveraging
 
 .. _terraform:
 
--------------------------
-LAB: Terraform Leveraging
--------------------------
+--------------------
+Terraform Leveraging
+--------------------
 
 Check out how easy Terraform is to integrate with Calm!
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++

@@ -1,10 +1,10 @@
-.. title:: LAB: CI/CD Environment
+.. title:: CI/CD Environment
 
 .. _cicd:
 
------------------------------
-LAB: Create CI/CD Environment
------------------------------
+------------------------
+Create CI/CD Environment
+------------------------
 
 Import Blueprints
 +++++++++++++++++

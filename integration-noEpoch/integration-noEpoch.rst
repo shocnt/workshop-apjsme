@@ -1,10 +1,10 @@
-.. title:: Era, Flow, Epoch Integration Demo
+.. title:: Era, Flow Integration Demo
 
-.. _integration:
+.. _integration-noEpoch:
 
----------------------------------
-Era, Flow, Epoch Integration Demo
----------------------------------
+--------------------------
+Era, Flow Integration Demo
+--------------------------
 
 Overview
 ++++++++
@@ -13,7 +13,7 @@ Overview
 
 #. Download video from `HERE <https://www.dropbox.com/s/v1269dwd3jcn6eo/Calm-Epoch-Era-20190405.mp4?dl=0>`_
 
-#. Download blueprint from HERE: :download:`Integration Demo Blueprint <./integration.json>`
+#. Download blueprint from HERE: :download:`Integration Demo Blueprint <./integration-noEpoch.json>`
 
 Prepare Era VM
 ++++++++++++++
@@ -112,6 +112,10 @@ Registering a Cluster
 Prepare Prism Central
 +++++++++++++++++++++
 
+.. note::
+
+    Upgrade Prism Central to **5.11**, Upgrade Calm to **2.7.1.2**.
+
 #. Ensure Flow is enabled. Go to **Prism Central Settings**
 
     .. figure:: images_integration/enable_flow.png
@@ -119,16 +123,6 @@ Prepare Prism Central
     .. note::
 
         You will not find **Enable Flow**, if it was enabled.
-
-#. Some categories will be created manually for this lab.
-
-    - **AppTier** - add ``App`` and ``DB`` if not existed
-
-        .. figure:: images_integration/int2.png
-
-#. Upgrade Calm to newest version (2.6.0.3) with **LCM**
-
-    .. figure:: images_integration/upgrade_calm.png
 
 #. Add ahv cluster to your default project
 
@@ -145,24 +139,23 @@ Prepare Prism Central
 Customized Blueprint
 ++++++++++++++++++++
 
-#. Upload blueprint from HERE: :download:`Integration Demo Blueprint <./integration.json>`
+#. Upload blueprint from HERE: :download:`Integration Demo Blueprint <./integration-noEpoch.json>`
 
 #. Customized blueprint to meet your environment
 
     - In **Default** application profile:
 
         - **era_ip** - Your Era VM IP address
-        - **db_public_key** - Your public key
-        - **epoch_aoc_host** - *nutanix.epoch.nutanix.com*
-        - **epoch_org_id** - *8cb44812-1cd3-45c4-847d-43f3271d126f*
+        - **db_public_key** - Your public key --> :ref:`ssh_key_pub`
         - **pc_ip** - Your Prism Central IP address
+        - **pc_username** - Your Prism Central admin user
         - **pc_password** - Your admin's password for Prism Central
 
     - In **Credentials**:
 
-        - **SSH Private Key** for db_server_creds - Put your private key here
+        - **SSH Private Key** for db_server_creds - Put your private key here --> :ref:`ssh_key_priv`
         - **password** for era_creds - **nutanix/4u** (we create this password in previous chapter)
-        - **SSH Private Key** for centos - Put your private key here
+        - **SSH Private Key** for centos - Put your private key here --> :ref:`ssh_key_priv`
 
         .. figure:: images_integration/int1.png
         
@@ -174,6 +167,23 @@ Customized Blueprint
             - **network** - assign NIC to VM
 
 #. Launch blueprint
+
+    - Select value for **compute_profile**:
+
+        .. figure:: images_integration/dv1.png
+
+    - Select value for **database_parameter**:
+
+        .. figure:: images_integration/dv2.png
+
+    - Select value for **software_profile**:
+
+        .. figure:: images_integration/dv3.png
+
+    - Select value for **network_profile**:
+
+        .. figure:: images_integration/dv4.png
+
 
 Integration Demo
 ++++++++++++++++
@@ -193,7 +203,7 @@ Integration Demo
 
         .. figure:: images_integration/int5.png
 
-    - Get the name of database server in top-right corner, it will be display in Epoch monitoring
+    - Get the name of database server in top-right corner
 
         .. figure:: images_integration/int6.png
 
@@ -209,7 +219,4 @@ Integration Demo
 
         .. figure:: images_integration/int9.png
 
-#. Check Epoch Monitoring, will see *layer 7* monitoring enabled for postgresql 
-
-    .. figure:: images_integration/int10.png
 

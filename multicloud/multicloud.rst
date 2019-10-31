@@ -1,10 +1,10 @@
-.. title:: LAB: Multi Cloud Integration
+.. title:: Multi Cloud Integration
 
 .. _multicloud:
 
-----------------------------
-LAB: Multi Cloud Integration
-----------------------------
+-----------------------
+Multi Cloud Integration
+-----------------------
 
 GCP
 +++

@@ -1,9 +1,9 @@
-.. title:: LAB: Zabbix Integration
+.. title:: Zabbix Integration
 
 .. _zabbix:
 
--------------------------
-LAB: Zabbix Integration
--------------------------
+------------------
+Zabbix Integration
+------------------
 
 

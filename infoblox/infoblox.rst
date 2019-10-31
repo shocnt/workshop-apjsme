@@ -1,8 +1,8 @@
-.. title:: LAB: Infoblox Integration
+.. title:: Infoblox Integration
 
 .. _infoblox:
 
--------------------------
-LAB: Infoblox Integration
--------------------------
+--------------------
+Infoblox Integration
+--------------------
 

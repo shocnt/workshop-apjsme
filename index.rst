@@ -7,7 +7,7 @@
   :hidden:
 
   portal/portal
-  integration/integration
+  integration-noEpoch/integration-noEpoch
   ansible/ansible-awx
   ansible/ansible-tower
   cicd/cicd
@@ -48,7 +48,7 @@ Released Labs
 -------------
 
 - :ref:`portal` (Jul 2019)
-- :ref:`integration` (Mar 2019)
+- :ref:`integration-noEpoch` (Oct 2019)
 - :ref:`ansible-awx` (Apr 2019)
 - :ref:`ansible-tower` (Apr 2019)
 - :ref:`cicd` (Mar 2019)
@@ -60,6 +60,11 @@ Working Labs
 - :ref:`multicloud` (May 2019)
 - :ref:`infoblox`
 - :ref:`zabbix` (Jul 2019)
+
+Obseleted Labs
+--------------
+
+- :ref:`integration` (Mar 2019)
 
 .. _ssh_key:
 
@@ -131,6 +136,8 @@ standard Cloud-Init Script with *SSH KEY*
 
 standard Cloud-Init Script with *Username and Password*
 -------------------------------------------------------
+
+-  for centos image, default username is *centos*, you could setup password for this user with following cloud init script
 
     .. code-block:: language
 

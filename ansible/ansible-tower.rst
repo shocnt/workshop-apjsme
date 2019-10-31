@@ -1,10 +1,10 @@
-.. title:: LAB: Ansible Tower Integration
+.. title:: Ansible Tower Integration
 
 .. _ansible-tower:
 
-------------------------------
-LAB: Ansible Tower Integration
-------------------------------
+-------------------------
+Ansible Tower Integration
+-------------------------
 
 Ansible Tower Integration
 +++++++++++++++++++++++++

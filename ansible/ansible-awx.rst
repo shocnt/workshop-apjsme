@@ -1,10 +1,10 @@
-.. title:: LAB: Ansible AWX Integration
+.. title:: Ansible AWX Integration
 
 .. _ansible-awx:
 
-----------------------------
-LAB: Ansible AWX Integration
-----------------------------
+-----------------------
+Ansible AWX Integration
+-----------------------
 
 AWX Integration
 +++++++++++++++
