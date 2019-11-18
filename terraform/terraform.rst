@@ -196,7 +196,7 @@ Launch It
 
     .. figure:: images/terr3.png
 
-.. caution:: after you demo, please remeber to delete the applications for cost saving
+.. warning:: after you demo, please remeber to delete the applications for cost saving
 
 How to access ECS VMs
 ---------------------
