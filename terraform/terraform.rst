@@ -205,7 +205,7 @@ How to access ECS VMs
 
     .. figure:: images/terr4.png
 
-    - Or use this :ref:`ssh_key_priv` to login **Terraform VM**
+    - Or use this :ref:`ssh_key_priv` to login **Terraform VM** with username **centos**
 
 - You will find one folder named with **number**. In this screenshot, we have folder named **8931**. Remeber to execute **terraform** CLI in this folder
 
