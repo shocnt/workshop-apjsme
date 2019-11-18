@@ -167,6 +167,8 @@ Overview
     - :download:`Alicloud ECS with TF <https://github.com/panlm/NTNX/raw/master/calm/blueprints/Terraform-Alicloud.json>`
     - :download:`AWS EC2 with TF <https://github.com/panlm/NTNX/raw/master/calm/blueprints/Terraform-AWS.json>`
 
+- You will be prompt to input the **passphrase**, please use **nutanix/4u**.
+
 Blueprint
 ---------
 
@@ -194,6 +196,44 @@ Launch It
 
     .. figure:: images/terr3.png
 
+.. caution:: after you demo, please remeber to delete the applications for cost saving
+
+How to access ECS VMs
+---------------------
+
+- Click **Open Termianl** to open the console of **Terraform VM**, using **terraform** credential to login
+
+    .. figure:: images/terr4.png
+
+    - Or use this :ref:`ssh_key_priv` to login **Terraform VM**
+
+- You will find one folder named with **number**. In this screenshot, we have folder named **8931**. Remeber to execute **terraform** CLI in this folder
+
+    .. figure:: images/terr5.png
+
+- I have save key information for you. 
+
+
+    .. figure:: images/terrinfo0.png
+
+    - file **ecs_pub_ip** has all public ip addresses of ECS you have built
+
+        .. figure:: images/terrinfo1.png
+
+    - file **privatekey-tfkey-8931** has private key, you could use it to connect to your ECS instances
+
+    - file **key_name** has the name of the key. you will need it when you run **terraform** CLI
+
+        .. figure:: images/terrinfo2.png
+
+    - Also you could get these info with
+
+        .. code-block:: bash
+
+            terraform output publicip
+            terraform output privatekey
+
+- Enjoy your ECS instances.
 
 Key Takeaways
 +++++++++++++
