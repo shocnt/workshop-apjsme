@@ -213,7 +213,6 @@ How to access ECS VMs
 
 - I have save key information for you. 
 
-
     .. figure:: images/terrinfo0.png
 
     - file **ecs_pub_ip** has all public ip addresses of ECS you have built
@@ -232,6 +231,10 @@ How to access ECS VMs
 
             terraform output publicip
             terraform output privatekey
+
+- Try to connect to ECS instance
+
+    .. figure:: images/terrinfo3.png
 
 - Enjoy your ECS instances.
 
