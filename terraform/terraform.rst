@@ -6,6 +6,95 @@
 Terraform Leveraging
 --------------------
 
+Using Terraform to allow Calm to support Alicloud
++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Overview
+--------
+
+- Using **Terraform** to focus on IAC (Infrastructure as a Code)
+- Using **Calm** to focus on application deployment, and Day 2 operations
+- Download blueprints you want to try:
+
+    - :download:`Alicloud ECS with TF <https://github.com/panlm/NTNX/raw/master/calm/blueprints/Terraform-Alicloud.json>`
+    - :download:`AWS EC2 with TF <https://github.com/panlm/NTNX/raw/master/calm/blueprints/Terraform-AWS.json>`
+
+- Upload blueprints to Calm
+    - You will be prompted to input the **passphrase**, please use **nutanix/4u**.
+    - Maybe you need setup the **template** and **network** for Terraform VM
+    - Save it and ready to launch
+
+Blueprint
+---------
+
+- **Service 1**: New VM
+
+    - New a Service, **Cloud** is **Nutanix**
+
+        .. figure:: images/terr1.png
+
+    - You can assign 1 vcpu / 1 GB memory to this VM
+    - Execute `terraform` command on this VM and create ECS instances on Alicloud. Get the public IP of the new instance.
+
+- **Service 2**: Existed VM
+
+    - New a Service, **Cloud** is **Existing Machine**
+    - Get the IP addresses from previous services `@@{Terraform.ecs_pub_ip[calm_array_index]}@@`
+
+        .. figure:: images/terr2.png
+
+Launch It
+---------
+
+- If you need to create multi ECS instances on Alicloud, just assign variable **num** before you launch blueprint.
+- If you launch successfully, you will see the public IP of Alicloud ECS.
+
+    .. figure:: images/terr3.png
+
+.. raw:: html
+
+    <strong><font color="red">After you demo, please remeber to DELETE the applications for COST SAVING</font></strong>
+
+How to access ECS VMs
+---------------------
+
+- Click **Open Termianl** to open the console of **Terraform VM**, using **terraform** credential to login
+
+    .. figure:: images/terr4.png
+
+    - Or use this :ref:`ssh_key_priv` to login **Terraform VM** with username **centos**
+
+- You will find one folder named with **number**. In this screenshot, we have folder named **8931**. Remeber to execute **terraform** CLI in this folder
+
+    .. figure:: images/terr5.png
+
+- I have save key information for you. 
+
+    .. figure:: images/terrinfo0.png
+
+    - file **ecs_pub_ip** has all public ip addresses of ECS you have built
+
+        .. figure:: images/terrinfo1.png
+
+    - file **privatekey-tfkey-8931** has private key, you could use it to connect to your ECS instances
+
+    - file **key_name** has the name of the key. you will need it when you run **terraform** CLI
+
+        .. figure:: images/terrinfo2.png
+
+    - Also you could get these info with
+
+        .. code-block:: bash
+
+            terraform output publicip
+            terraform output privatekey
+
+- Try to connect to ECS instance
+
+    .. figure:: images/terrinfo3.png
+
+- Enjoy your ECS instances.
+
 Check out how easy Terraform is to integrate with Calm!
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -154,91 +243,6 @@ Prerequisite
             terraform init
             terraform destroy -var key_name="tfkey-111" -var instance_num=3
 
-Using Terraform to allow Calm to support Alicloud
-+++++++++++++++++++++++++++++++++++++++++++++++++
-
-Overview
---------
-
-- Using **Terraform** to focus on IAC (Infrastructure as a Code)
-- Using **Calm** to focus on application deployment, and Day 2 operations
-- Download blueprints you want to try:
-
-    - :download:`Alicloud ECS with TF <https://github.com/panlm/NTNX/raw/master/calm/blueprints/Terraform-Alicloud.json>`
-    - :download:`AWS EC2 with TF <https://github.com/panlm/NTNX/raw/master/calm/blueprints/Terraform-AWS.json>`
-
-- You will be prompt to input the **passphrase**, please use **nutanix/4u**.
-
-Blueprint
----------
-
-- **Service 1**: New VM
-
-    - New a Service, **Cloud** is **Nutanix**
-
-        .. figure:: images/terr1.png
-
-    - You can assign 1 vcpu / 1 GB memory to this VM
-    - Execute `terraform` command on this VM and create ECS instances on Alicloud. Get the public IP of the new instance.
-
-- **Service 2**: Existed VM
-
-    - New a Service, **Cloud** is **Existing Machine**
-    - Get the IP addresses from previous services `@@{Terraform.ecs_pub_ip[calm_array_index]}@@`
-
-        .. figure:: images/terr2.png
-
-Launch It
----------
-
-- If you need to create multi ECS instances on Alicloud, just assign variable **num** before you launch blueprint.
-- If you launch successfully, you will see the public IP of Alicloud ECS.
-
-    .. figure:: images/terr3.png
-
-.. raw:: html
-
-    <strong><font color="red">After you demo, please remeber to DELETE the applications for COST SAVING</font></strong>
-
-How to access ECS VMs
----------------------
-
-- Click **Open Termianl** to open the console of **Terraform VM**, using **terraform** credential to login
-
-    .. figure:: images/terr4.png
-
-    - Or use this :ref:`ssh_key_priv` to login **Terraform VM** with username **centos**
-
-- You will find one folder named with **number**. In this screenshot, we have folder named **8931**. Remeber to execute **terraform** CLI in this folder
-
-    .. figure:: images/terr5.png
-
-- I have save key information for you. 
-
-    .. figure:: images/terrinfo0.png
-
-    - file **ecs_pub_ip** has all public ip addresses of ECS you have built
-
-        .. figure:: images/terrinfo1.png
-
-    - file **privatekey-tfkey-8931** has private key, you could use it to connect to your ECS instances
-
-    - file **key_name** has the name of the key. you will need it when you run **terraform** CLI
-
-        .. figure:: images/terrinfo2.png
-
-    - Also you could get these info with
-
-        .. code-block:: bash
-
-            terraform output publicip
-            terraform output privatekey
-
-- Try to connect to ECS instance
-
-    .. figure:: images/terrinfo3.png
-
-- Enjoy your ECS instances.
 
 Key Takeaways
 +++++++++++++
