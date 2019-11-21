@@ -58,6 +58,13 @@ Launch It
 How to access ECS VMs
 ---------------------
 
+- Expand and click any Alicloud services
+- Click **Open Terminal** for this service
+- Enjoy your ECS instances.
+
+Terraform Deep Dive 
+-------------------
+
 - Click **Open Termianl** to open the console of **Terraform VM**, using **terraform** credential to login
 
     .. figure:: images/terr4.png
