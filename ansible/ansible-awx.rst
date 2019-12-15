@@ -1,72 +1,80 @@
-.. title:: Ansible AWX Integration
+.. title:: Ansible AWX 連携
 
 .. _ansible-awx:
 
 -----------------------
-Ansible AWX Integration
+Ansible AWX 連携
 -----------------------
 
-AWX Integration
+AWX 連携
 +++++++++++++++
 
-1. Overview
+0. 前提条件
+-----------
+- Prism Central 5.11以上
+- Calm 2.9以上
+
+1. 概要
 -----------
 
-- Online video is here: `Video <https://youtu.be/rWOAB9SLT5U>`_
+- 動画による解説はこちら: `動画 <https://youtu.be/rWOAB9SLT5U>`_
 
-2. Create AWX
+2. AWXインスタンスの作成
 -------------
 
-#. Using default CentOS image, copy this url and **Add Image** from **URL**. `CentOS-7-x86_64-GenericCloud-1801-01.qcow2 <http://download.nutanix.com/calm/CentOS-7-x86_64-GenericCloud-1801-01.qcow2>`_
-
-#. Download blueprint from HERE: :download:`blueprint: ansible-awx <./ansible-awx.json>`
-
-#. Modify blueprint as you needed
-
-    - **Credentials** - *use your private key* or refer --> :ref:`ssh_key_priv`
-    - **Variables** in **Application Profile**
+#. :download:`こちら<./ansible-awx.json>`からブループリントをダウンロードし、Calmへとアップロードします。
+    - **Project** - Default
+    - **Passphrase** - nutanix/4u
     
-        - **public_key** - *use your public key* or refer --> :ref:`ssh_key_pub`
+#. ブループリントをSaveします。エラー出力が出ますので一度Prism Centralからログアウトし、再度ログインします。
 
-    - **image** - *select the image you just created*
-    - **cloudinit** - *use your cloudinit script* or refer --> :ref:`cloudinit`
-    - **network** - *select network*
-    - **Save** the blueprint
+#. ブループリントの内容を確認、修正します。
 
-#. After blueprint launched, you will get a workable AWX. Open browser to access the AWX VM's IP address. Default credential is **admin/password**
+    - **Credentials** - :ref:`ssh_key_priv`で設定済み。
+    - **Application Profile**配下の**Variables**    
+        - **public_key** - :ref:`ssh_key_pub`で設定済み。
+    - **Service**配下の**AWX**配下の - Nutanixサイトからダウンロードするように設定済み。
+        - **Image**
+            - **Configuration**配下の**DOWNLOADABLE IMAGE CONFIGURATION**を参照。
+        - **Cloud-init** - :ref:`cloudinit`で設定済み。
+        - **NETWORK ADAPTERS (NICS)** - 適切なネットワークを選択
+
+#. ブループリントをSaveし、Launchします。
+
+#. AWXアプリケーションの起動に成功したら、ブラウザを開きAWX仮想マシンのIPアドレスにアクセスします。デフォルトの認証情報は**admin/password**です。
 
     .. figure:: images/awx1.png
 
-3. Setup AWX
+3. AWXのセットアップ
 ------------
 
-#. Go to **Inventory Scripts** from the left side, click ``green`` plus button on the right side to add new one
+#. ナビゲーションペインの**Inventory Scripts**に移動し、緑色の"+"ボタンをクリックし新規スクリプトを作成します。
 
     .. figure:: images/awx-inv-script.png
 
-    - **Name** - *prism central*
-    - get script from here `prism_central.py <https://raw.githubusercontent.com/panlm/ansible-nutanix-prismcentral-inventory/master/prism_central.py>`_
-    - **Save**
+    - **NAME** - *prism central*
+    - **CUSTOM SCRIPT** - `prism_central.py <https://raw.githubusercontent.com/panlm/ansible-nutanix-prismcentral-inventory/master/prism_central.py>`_をコピー＆ペーストします。
+    - **SAVE**をクリックします。
 
-#. Go to **Inventories** from the left side, click ``green`` plus button on the right side to add new one
+#. ナビゲーションペインの**Inventories**に移動し、緑色の"+"ボタンをクリックし新規インベントリを作成します。
 
     .. figure:: images/awx-inv1.png
 
-    - **Name** - *Nutanix Inventory*
-    - **Save**
+    - **NAME** - *Nutanix Inventory*
+    - **SAVE**
 
-#. Go to **SOURCES** from the top
+#. 上部の**SOURCES**メニューを選択します。
 
     .. figure:: images/awx-inv2.png
 
-#. Click ``green`` plus button to add a **Source** to this inventory
+#. 緑色の"+"ボタンをクリックし新たなインベントリのソースを設定します。
 
     .. figure:: images/awx-inv3.png
 
     - **NAME** - *prism central*
     - **SOURCE** - *Custom Script*
-    - **CUSTOM INVENTORY SCRIPT** - *select the inventory script you just added*
-    - **UPDATE ON LAUNCH** - *checked*
+    - **CUSTOM INVENTORY SCRIPT** - *上記ステップでアップロードしたスクリプトを選択します。*
+    - **UPDATE ON LAUNCH** - *有効化
     - **ENVIRONMENT VARIABLES** - *prism_central_ip*, *prism_username*, *prism_password*
 
         .. code-block:: yaml
@@ -76,27 +84,27 @@ AWX Integration
             PC_USERNAME: admin
             PC_PASSWORD: nx2Tech264!
     
-    - **Save**
+    - **SAVE**
 
-#. Start sync
+#. インベントリ同期を開始します。
 
-    - Go back to **SOURCE** from top navigator path
+    - **SOURCE**に移動します。
 
         .. figure:: images/awx-navigator1.png
 
-    - Click ``Start sync process`` to capture VMs info to inventory
+    - ``Start sync process``をクリックします。
 
         .. figure:: images/awx-inv4.png
 
-    - The ``cloud`` icon (left of source name) will tune to green, click it for more detail logs
+    - 雲のアイコンが緑になれば同期完了です。
 
         .. figure:: images/awx-inv5.png
 
-    - After sync finished, check **HOST** tab. all VMs in your cluster will be captured and displayed
+    - 同期完了後、**HOST**タブをクリックすると、Nutanixクラスタの全仮想マシンがインベントリとしてリストされています。
 
         .. figure:: images/awx-inv6.png
 
-#. Go to **Credentials** from left side and add new one for VMs which we will create later
+#. ナビゲーションペインから**Credentials**をクリックし、後ほど作成する仮想マシン用の認証情報を登録します。
 
     .. figure:: images/awx-cred2.png
 
@@ -104,53 +112,46 @@ AWX Integration
     - **ORGANIZATION** - *Default*
     - **CREDENTIAL TYPE** - *Machine*
     - **USERNAME** - *centos*
-    - **SSH PRIVATE KEY** - *user your private key* or refer --> :ref:`ssh_key_priv`
+    - **SSH PRIVATE KEY** - こちらのプライベートキーをコピー＆ペースト --> :ref:`ssh_key_priv`
     - **PRIVILEGE ESCALATION METHOD** - *sudo*
     - **PRIVILEGE ESCALATION USERNAME** - *root*
     - **Save**
 
-    .. note:: USERNAME and Password/Private Key should be same with the credential in ``ansible-awx-managed-vm`` blueprint
+#. ナビゲーションペインから**Projects**をクリックします。
 
-#. Go to Projects
-
-    - click ``Get latest SCM revision``, it will download ansible playbooks to local for this lab
+    - ``Get latest SCM revision``をクリックします。
 
         .. figure:: images/awx-proj0.png
 
-    - Open this **Demo Project**, you will find **SCM URL**. this is the github which ansible playbooks download from
+    - **Demo Project**に移動すると、**SCM URL**を確認できます。こちらはAnsibleのプレイブックのダウンロード元のURLです。
 
         .. figure:: images/awx-proj2.png
 
-        - Prefer URL - `https://github.com/panlm/myansible.git`
-        - Default URL - `https://github.com/ansible/ansible-tower-samples`
+        - **SCM URL** - `https://github.com/panlm/myansible.git`
+        - **Save**
 
-    - Click **JOB TEMPLATES**
+    - **JOB TEMPLATES**をクリックします。
 
         .. figure:: images/awx-proj3.png
 
-    - Open **Demo Job Template**, we will re-use it in our lab
+    - **Demo Job Template**を開きます。こちらのJobを後続のステップで使用します。
 
         .. figure:: images/awx-proj4.png
 
-        - **INVENTORY** - *Nutanix Inventory* (we just create it)
-        - **CREDENTIAL** - *Nutanix VM* (we just create it)
+        - **INVENTORY** - *Nutanix Inventory*
+        - **CREDENTIAL** - *Nutanix VM*
         - **PLAYBOOK** - *hello_world.yml*
 
-            .. note:: if you could not see playbook here, maybe need to fresh your project, see first step in this paragraph, ``Get latest SCM revision``
+            .. note:: もしプレイブックがみえない場合、``Get latest SCM revision``を再度行います。
             
-        - **ALLOW PROVISIONING CALLBACKS** - *checked*
-        - write down the **PROVISIONING CALLBACK URL**, will be used in Calm blueprint
-        - click right button to generate **HOST CONFIG KEY**, and write down it, will be used in Calm blueprint
-        
-            - get help for this **HOST CONFIG KEY**
-
-                .. figure:: images/awx-proj5.png
-
-        - **Save** and you will be prompt these important info
+        - **ALLOW PROVISIONING CALLBACKS** - *有効化*
+        - **PROVISIONING CALLBACK URL** - メモします。
+        - **HOST CONFIG KEY**のボタンをクリックし、メモします。        
+        - **Save**をクリックすると再度Callback URLとHost Config Keyが表示されます。
 
             .. figure:: images/awx-proj6.png
 
-#. Go to **Jobs** from left side, and wait magic happen ...
+#. ナビゲーションペインから**Jobs**に移動します。
 
 4. Create VM managed by AWX
 ---------------------------
