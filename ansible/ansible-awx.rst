@@ -26,7 +26,7 @@ AWX 連携
     - **Project** - Default
     - **Passphrase** - nutanix/4u
     
-#. ブループリントをSaveします。エラー出力が出ますので一度Prism Centralからログアウトし、再度ログインします。
+#. 一旦ブループリントをSaveします。エラー出力が出ますので一度Prism Centralからログアウトし、再度ログインします。
 
 #. ブループリントの内容を確認、修正します。
     - **Credentials** - :ref:`ssh_key_priv` で設定済み。
@@ -155,54 +155,48 @@ AWX 連携
 
 #. ナビゲーションペインから **Jobs** に移動します。
 
-4. Create VM managed by AWX
+4. AWXによって管理される仮想マシンの作成
 ---------------------------
 
-#. Download blueprint from HERE: :download:`blueprint: ansible-awx-managed-vm <./ansible-awx-managed-vm.json>`
+#. `こちら <./ansible-awx-managed-vm.json>`_ からブループリントをダウンロードし、Calmへとアップロードします。
 
-#. This is a simple blueprint with one service. One bash task in service's **Package** --> **Install** task
+#. 一旦ブループリントをSaveします。エラー出力が出ますので一度Prism Centralからログアウトし、再度ログインします。
 
-    .. note:: here is an sample, use your ``HOST CONFIG KEY`` and ``PROVISIONING CALLBACK URL``
-    
-    .. code-block:: bash
+#. ブループリントの内容を確認します。
+    - **Package**
+        - **Install** タスクでAWXで払い出したCallback URLを呼び出しています。
 
-        set -x
-        curl --data "host_config_key=629ff460-d58e-410c-a2d0-5e1557eded27" http://10.42.98.107:80/api/v2/job_templates/5/callback/
+#. ブループリントを修正します。
+    - **ApplicationProfile**
+        - **Variables**    
+        　　　　- **host_config_key** - *AWXから取得したコンフィグキー*
+        　　　　- **callback_url** - *AWXから取得したCallback URL*
+        　　　　- **public_key** - こちらのパブリックキーをコピー＆ペースト --> :ref:`ssh_key_pub`
+    - **Credentials** - :ref:`ssh_key_priv` で設定済み。
+    - **Service**
+        - **AWXManaged** 
+            - **Image**
+                - Nutanixサイトからダウンロードするように設定済み。
+                - Configuration配下のDOWNLOADABLE IMAGE CONFIGURATIONを参照。
+            - **Cloud-init** - :ref:`cloudinit` で設定済み。
+            - **NETWORK ADAPTERS (NICS)** - 適切なネットワークを選択
 
-#. Modify this blueprint
+#. ブループリントをSaveし、Launchします。
 
-    - Variables
-
-        - **host_config_key** - *your host config key*
-        - **callback_url** - *your callback url*
-        - **public_key** - *inject your public key* or refer --> :ref:`ssh_key_pub`
-
-    - Assign a linux image
-    - Assign cloudinit script, use your cloudinit script or refer --> :ref:`cloudinit`
-    - Add nic and assign network
-    - Create a credential 
-
-        - **Credential Name** - *centos*
-        - **Username** - *centos*
-        - **Secret Type** - *SSH Private Key*
-        - **SSH Private Key** - *paste your private key* or refer --> :ref:`ssh_key_priv`
-
-#. Save and launch blueprint
-
-5. Check playbook is running on VM
+5. 仮想マシンでプレイブックが実行されているか確認
 ----------------------------------
 
-#. Back to AWX UI, go to **Jobs**
+#. AWX UIに戻り、ナビゲーションペインから **Jobs** に移動します。
 
-#. after the VM created by Calm, the job will running automatically to config this VM as your expectation
+#. 仮想マシンがCalmによって作成されたあと、ジョブがこの仮想マシンで自動的に実行されていることを確認します。
 
     .. figure:: images/awx-job1.png
 
-#. click job for more detail information, including the VM ip address
+#. ジョブをクリックし、仮想マシンのIPアドレス等の詳細情報を確認します。
 
     .. figure:: images/awx-job2.png
 
-Reference
+参考
 +++++++++
 
 - Jose Gomez's `Github <https://github.com/pipoe2h/ansible-nutanix-prismcentral-inventory>`_ and  `Video <https://youtu.be/rWOAB9SLT5U>`_
