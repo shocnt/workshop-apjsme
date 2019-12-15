@@ -1,9 +1,9 @@
 -----------
-Other Stuff
+その他
 -----------
 
-Information
+情報
 +++++++++++
 
-Author: leiming.pan@nutanix.com
+作成者: sho.uchida@nutanix.com
 
