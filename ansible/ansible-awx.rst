@@ -22,41 +22,43 @@ AWX 連携
 2. AWXインスタンスの作成
 -------------
 
-#. :download:`こちら<./ansible-awx.json>`からブループリントをダウンロードし、Calmへとアップロードします。
+#. `こちら <./ansible-awx.json>`_からブループリントをダウンロードし、Calmへとアップロードします。
     - **Project** - Default
     - **Passphrase** - nutanix/4u
     
 #. ブループリントをSaveします。エラー出力が出ますので一度Prism Centralからログアウトし、再度ログインします。
 
 #. ブループリントの内容を確認、修正します。
-
     - **Credentials** - :ref:`ssh_key_priv`で設定済み。
-    - **Application Profile**配下の**Variables**    
-        - **public_key** - :ref:`ssh_key_pub`で設定済み。
-    - **Service**配下の**AWX**配下の - Nutanixサイトからダウンロードするように設定済み。
-        - **Image**
-            - **Configuration**配下の**DOWNLOADABLE IMAGE CONFIGURATION**を参照。
-        - **Cloud-init** - :ref:`cloudinit`で設定済み。
-        - **NETWORK ADAPTERS (NICS)** - 適切なネットワークを選択
+    - **ApplicationProfile**
+        - **Variables**    
+            - **public_key** - :ref:`ssh_key_pub`で設定済み。
+    - **Service**
+        - **AWX** 
+            - **Image**
+                - Nutanixサイトからダウンロードするように設定済み。
+                - Configuration配下のDOWNLOADABLE IMAGE CONFIGURATIONを参照。
+            - **Cloud-init** - :ref:`cloudinit`で設定済み。
+            - **NETWORK ADAPTERS (NICS)** - 適切なネットワークを選択
 
 #. ブループリントをSaveし、Launchします。
 
-#. AWXアプリケーションの起動に成功したら、ブラウザを開きAWX仮想マシンのIPアドレスにアクセスします。デフォルトの認証情報は**admin/password**です。
+#. AWXアプリケーションの起動に成功したら、ブラウザを開きAWX仮想マシンのIPアドレスにアクセスします。デフォルトの認証情報は **admin/password** です。
 
     .. figure:: images/awx1.png
 
 3. AWXのセットアップ
 ------------
 
-#. ナビゲーションペインの**Inventory Scripts**に移動し、緑色の"+"ボタンをクリックし新規スクリプトを作成します。
+#. ナビゲーションペインの **Inventory Scripts** に移動し、緑色の"+"ボタンをクリックし新規スクリプトを作成します。
 
     .. figure:: images/awx-inv-script.png
 
     - **NAME** - *prism central*
     - **CUSTOM SCRIPT** - `prism_central.py <https://raw.githubusercontent.com/panlm/ansible-nutanix-prismcentral-inventory/master/prism_central.py>`_をコピー＆ペーストします。
-    - **SAVE**をクリックします。
+    - **SAVE** をクリックします。
 
-#. ナビゲーションペインの**Inventories**に移動し、緑色の"+"ボタンをクリックし新規インベントリを作成します。
+#. ナビゲーションペインの **Inventories** に移動し、緑色の"+"ボタンをクリックし新規インベントリを作成します。
 
     .. figure:: images/awx-inv1.png
 
@@ -88,7 +90,7 @@ AWX 連携
 
 #. インベントリ同期を開始します。
 
-    - **SOURCE**に移動します。
+    - **SOURCE** に移動します。
 
         .. figure:: images/awx-navigator1.png
 
@@ -100,11 +102,11 @@ AWX 連携
 
         .. figure:: images/awx-inv5.png
 
-    - 同期完了後、**HOST**タブをクリックすると、Nutanixクラスタの全仮想マシンがインベントリとしてリストされています。
+    - 同期完了後、 **HOST** タブをクリックすると、Nutanixクラスタの全仮想マシンがインベントリとしてリストされています。
 
         .. figure:: images/awx-inv6.png
 
-#. ナビゲーションペインから**Credentials**をクリックし、後ほど作成する仮想マシン用の認証情報を登録します。
+#. ナビゲーションペインから **Credentials** をクリックし、後ほど作成する仮想マシン用の認証情報を登録します。
 
     .. figure:: images/awx-cred2.png
 
@@ -117,24 +119,24 @@ AWX 連携
     - **PRIVILEGE ESCALATION USERNAME** - *root*
     - **Save**
 
-#. ナビゲーションペインから**Projects**をクリックします。
+#. ナビゲーションペインから **Projects** をクリックします。
 
     - ``Get latest SCM revision``をクリックします。
 
         .. figure:: images/awx-proj0.png
 
-    - **Demo Project**に移動すると、**SCM URL**を確認できます。こちらはAnsibleのプレイブックのダウンロード元のURLです。
+    - **Demo Project** に移動すると、 **SCM URL** を確認できます。こちらはAnsibleのプレイブックのダウンロード元のURLです。
 
         .. figure:: images/awx-proj2.png
 
         - **SCM URL** - `https://github.com/panlm/myansible.git`
         - **Save**
 
-    - **JOB TEMPLATES**をクリックします。
+    - **JOB TEMPLATES** をクリックします。
 
         .. figure:: images/awx-proj3.png
 
-    - **Demo Job Template**を開きます。こちらのJobを後続のステップで使用します。
+    - **Demo Job Template** を開きます。こちらのJobを後続のステップで使用します。
 
         .. figure:: images/awx-proj4.png
 
@@ -146,12 +148,12 @@ AWX 連携
             
         - **ALLOW PROVISIONING CALLBACKS** - *有効化*
         - **PROVISIONING CALLBACK URL** - メモします。
-        - **HOST CONFIG KEY**のボタンをクリックし、メモします。        
-        - **Save**をクリックすると再度Callback URLとHost Config Keyが表示されます。
+        - **HOST CONFIG KEY** のボタンをクリックし、メモします。        
+        - **Save** をクリックすると再度Callback URLとHost Config Keyが表示されます。
 
             .. figure:: images/awx-proj6.png
 
-#. ナビゲーションペインから**Jobs**に移動します。
+#. ナビゲーションペインから **Jobs** に移動します。
 
 4. Create VM managed by AWX
 ---------------------------
