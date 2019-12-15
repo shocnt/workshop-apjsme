@@ -65,7 +65,7 @@ AWX 連携
     - **NAME** - *Nutanix Inventory*
     - **SAVE**
 
-#. 上部の**SOURCES**メニューを選択します。
+#. 上部の **SOURCES** メニューを選択します。
 
     .. figure:: images/awx-inv2.png
 
@@ -144,7 +144,7 @@ AWX 連携
         - **CREDENTIAL** - *Nutanix VM*
         - **PLAYBOOK** - *hello_world.yml*
 
-            .. note:: もしプレイブックがみえない場合、``Get latest SCM revision``を再度行います。
+            .. note:: もしプレイブックがみえない場合、 ``Get latest SCM revision`` を再度行います。
             
         - **ALLOW PROVISIONING CALLBACKS** - *有効化*
         - **PROVISIONING CALLBACK URL** - メモします。
