@@ -52,7 +52,7 @@ SE向けCalmラボにようこそ
 .. - :ref:`cicd` (Mar 2019)
 .. - :ref:`terraform` (Oct 2019)
 
-Working Labs
+準備中ラボ
 ------------
 
 .. - :ref:`multicloud` (May 2019)
@@ -127,7 +127,7 @@ SSHキー
             sudo: ['ALL=(ALL) NOPASSWD:ALL']
 
 
-*Username and Password* 向けCloud-Init
+*ユーザ名+パスワード* 向けCloud-Init
 -------------------------------------------------------
 
 -  for centos image, default username is *centos*, you could setup password for this user with following cloud init script
