@@ -22,23 +22,23 @@ AWX 連携
 2. AWXインスタンスの作成
 -------------
 
-#. `こちら <./ansible-awx.json>`_からブループリントをダウンロードし、Calmへとアップロードします。
+#. `こちら <./ansible-awx.json>`_ からブループリントをダウンロードし、Calmへとアップロードします。
     - **Project** - Default
     - **Passphrase** - nutanix/4u
     
 #. ブループリントをSaveします。エラー出力が出ますので一度Prism Centralからログアウトし、再度ログインします。
 
 #. ブループリントの内容を確認、修正します。
-    - **Credentials** - :ref:`ssh_key_priv`で設定済み。
+    - **Credentials** - :ref:`ssh_key_priv` で設定済み。
     - **ApplicationProfile**
         - **Variables**    
-            - **public_key** - :ref:`ssh_key_pub`で設定済み。
+            - **public_key** - :ref:`ssh_key_pub` で設定済み。
     - **Service**
         - **AWX** 
             - **Image**
                 - Nutanixサイトからダウンロードするように設定済み。
                 - Configuration配下のDOWNLOADABLE IMAGE CONFIGURATIONを参照。
-            - **Cloud-init** - :ref:`cloudinit`で設定済み。
+            - **Cloud-init** - :ref:`cloudinit` で設定済み。
             - **NETWORK ADAPTERS (NICS)** - 適切なネットワークを選択
 
 #. ブループリントをSaveし、Launchします。
@@ -55,7 +55,7 @@ AWX 連携
     .. figure:: images/awx-inv-script.png
 
     - **NAME** - *prism central*
-    - **CUSTOM SCRIPT** - `prism_central.py <https://raw.githubusercontent.com/panlm/ansible-nutanix-prismcentral-inventory/master/prism_central.py>`_をコピー＆ペーストします。
+    - **CUSTOM SCRIPT** - `prism_central.py <https://raw.githubusercontent.com/panlm/ansible-nutanix-prismcentral-inventory/master/prism_central.py>`_ をコピー＆ペーストします。
     - **SAVE** をクリックします。
 
 #. ナビゲーションペインの **Inventories** に移動し、緑色の"+"ボタンをクリックし新規インベントリを作成します。
@@ -76,7 +76,7 @@ AWX 連携
     - **NAME** - *prism central*
     - **SOURCE** - *Custom Script*
     - **CUSTOM INVENTORY SCRIPT** - *上記ステップでアップロードしたスクリプトを選択します。*
-    - **UPDATE ON LAUNCH** - *有効化
+    - **UPDATE ON LAUNCH** - *有効化*
     - **ENVIRONMENT VARIABLES** - *prism_central_ip*, *prism_username*, *prism_password*
 
         .. code-block:: yaml
