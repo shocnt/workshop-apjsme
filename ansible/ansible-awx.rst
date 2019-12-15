@@ -168,10 +168,10 @@ AWX 連携
 
 #. ブループリントを修正します。
     - **ApplicationProfile**
-        - **Variables**    
-        　　　　- **host_config_key** - *AWXから取得したコンフィグキー*
-        　　　　- **callback_url** - *AWXから取得したCallback URL*
-        　　　　- **public_key** - こちらのパブリックキーをコピー＆ペースト --> :ref:`ssh_key_pub`
+        - **Variables**
+            - **host_config_key** - *AWXから取得したコンフィグキー*
+            - **callback_url** - *AWXから取得したCallback URL*
+            - **public_key** - こちらのパブリックキーをコピー＆ペースト --> :ref:`ssh_key_pub`
     - **Credentials** - :ref:`ssh_key_priv` で設定済み。
     - **Service**
         - **AWXManaged** 
