@@ -94,7 +94,7 @@ AWX 連携
 
         .. figure:: images/awx-navigator1.png
 
-    - ``Start sync process``をクリックします。
+    - ``Start sync process`` をクリックします。
 
         .. figure:: images/awx-inv4.png
 
