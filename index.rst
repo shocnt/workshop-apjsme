@@ -2,24 +2,24 @@
 
 .. toctree::
   :maxdepth: 2
-  :caption: Released Labs
+  :caption: リリース済みラボ
   :name: _labs
   :hidden:
 
-  portal/portal
-  integration-noEpoch/integration-noEpoch
   ansible/ansible-awx
+..  portal/portal
+  integration-noEpoch/integration-noEpoch
   ansible/ansible-tower
   cicd/cicd
   terraform/terraform
 
 .. toctree::
   :maxdepth: 2
-  :caption: Working Labs
+  :caption: 準備中ラボ
   :name: _workinglabs
   :hidden:
 
-  multicloud/multicloud
+..  multicloud/multicloud
   infoblox/infoblox
   zabbix/zabbix
 
@@ -29,51 +29,44 @@
   :name: _appendix
   :hidden:
 
-  appendix/glossary
   appendix/otherstuff
 
 .. _getting_started:
 
 -------------
-Getting Start
+はじめに
 -------------
 
-Welcome to labs for APJ SE
+SE向けCalmラボにようこそ
 
-
-Labs we have
+ラボ
 ++++++++++++
 
-Released Labs
+リリース済みラボ
 -------------
 
-- :ref:`portal` (Jul 2019)
-- :ref:`integration-noEpoch` (Oct 2019)
 - :ref:`ansible-awx` (Apr 2019)
-- :ref:`ansible-tower` (Apr 2019)
-- :ref:`cicd` (Mar 2019)
-- :ref:`terraform` (Oct 2019)
+.. - :ref:`portal` (Jul 2019)
+.. - :ref:`integration-noEpoch` (Oct 2019)
+.. - :ref:`ansible-tower` (Apr 2019)
+.. - :ref:`cicd` (Mar 2019)
+.. - :ref:`terraform` (Oct 2019)
 
 Working Labs
 ------------
 
-- :ref:`multicloud` (May 2019)
-- :ref:`infoblox`
-- :ref:`zabbix` (Jul 2019)
-
-Obseleted Labs
---------------
-
-- :ref:`integration` (Mar 2019)
+.. - :ref:`multicloud` (May 2019)
+.. - :ref:`infoblox`
+.. - :ref:`zabbix` (Jul 2019)
 
 .. _ssh_key:
 
-Sample SSH Keys
+SSHキー
 +++++++++++++++
 
 .. _ssh_key_priv:
 
-Private Key
+プライベートキー
 -----------
 
 ::
@@ -109,7 +102,7 @@ Private Key
 
 .. _ssh_key_pub:
 
-Public Key
+パブリックキー
 ----------
 
 ::
@@ -118,7 +111,7 @@ Public Key
 
 .. _cloudinit:
 
-standard Cloud-Init Script with *SSH KEY*
+*SSH KEY* 向けCloud-Init
 -----------------------------------------
 
     .. code-block:: language
@@ -134,7 +127,7 @@ standard Cloud-Init Script with *SSH KEY*
             sudo: ['ALL=(ALL) NOPASSWD:ALL']
 
 
-standard Cloud-Init Script with *Username and Password*
+*Username and Password* 向けCloud-Init
 -------------------------------------------------------
 
 -  for centos image, default username is *centos*, you could setup password for this user with following cloud init script
