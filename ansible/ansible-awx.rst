@@ -22,7 +22,7 @@ AWX 連携
 2. AWXインスタンスの作成
 -------------
 
-#. `こちら <./ansible-awx.json>`_ からブループリントをダウンロードし、Calmへとアップロードします。
+#. `こちら <https://shuchida.s3-ap-northeast-1.amazonaws.com/ansible-awx.json>`_ からブループリントをダウンロードし、Calmへとアップロードします。
     - **Project** - Default
     - **Passphrase** - nutanix/4u
     
@@ -82,9 +82,9 @@ AWX 連携
         .. code-block:: yaml
         
             ---
-            PC_IP_ADDR: 10.42.98.39
+            PC_IP_ADDR: Prism Central IP
             PC_USERNAME: admin
-            PC_PASSWORD: nx2Tech264!
+            PC_PASSWORD: adminユーザパスワード
     
     - **SAVE**
 
@@ -158,7 +158,7 @@ AWX 連携
 4. AWXによって管理される仮想マシンの作成
 ---------------------------
 
-#. `こちら <./ansible-awx-managed-vm.json>`_ からブループリントをダウンロードし、Calmへとアップロードします。
+#. `こちら <https://shuchida.s3-ap-northeast-1.amazonaws.com/ansible-awx-managed-vm.json>`_ からブループリントをダウンロードし、Calmへとアップロードします。
 
 #. 一旦ブループリントをSaveします。エラー出力が出ますので一度Prism Centralからログアウトし、再度ログインします。
 
